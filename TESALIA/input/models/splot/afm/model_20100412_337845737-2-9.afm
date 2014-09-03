@@ -1,0 +1,26 @@
+%Relationships
+_r :  _r_2  _r_3  _r_5  _r_6  _r_7 ;
+_r_2 :  _r_2_14  _r_2_15  _r_2_16  _r_2_18 ;
+
+%Attributes
+_r_2_14.value: Integer[0 to 10],1,0;
+_r_2_14.cost: Integer[0 to 10],1,0;
+_r_2_15.value: Integer[0 to 10],2,0;
+_r_2_15.cost: Integer[0 to 10],3,0;
+_r_2_16.value: Integer[0 to 10],2,0;
+_r_2_16.cost: Integer[0 to 10],5,0;
+_r_2_18.value: Integer[0 to 10],1,0;
+_r_2_18.cost: Integer[0 to 10],5,0;
+_r_3.value: Integer[0 to 10],4,0;
+_r_3.cost: Integer[0 to 10],6,0;
+_r_5.value: Integer[0 to 10],4,0;
+_r_5.cost: Integer[0 to 10],5,0;
+_r_6.value: Integer[0 to 10],3,0;
+_r_6.cost: Integer[0 to 10],4,0;
+_r_7.value: Integer[0 to 10],4,0;
+_r_7.cost: Integer[0 to 10],6,0;
+
+%Constraints
+_r_2_16.cost == 5 AND _r_2_18.value != 8;
+_r_2_14.value == 4 IFF _r_2_16.cost != 6;
+

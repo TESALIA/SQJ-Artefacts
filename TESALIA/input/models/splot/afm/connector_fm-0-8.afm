@@ -1,0 +1,36 @@
+%Relationships
+Connector :  Paradigm  Technology ;
+Paradigm :  Client_Server  Message_Based ;
+Client_Server :  Synchronous  Asynchronous ;
+Synchronous : [Timeout] ;
+Asynchronous :  Polling  Callback ;
+Polling :  Blocking  Non_blocking ;
+Message_Based :  Sender  Receiver ;
+Receiver :  Pull  Push ;
+Pull : [1,2] {Queued Non_Queued };
+Technology :  CAN  Local ;
+
+%Attributes
+Timeout.value: Integer[0 to 10],6,0;
+Timeout.cost: Integer[0 to 10],7,0;
+Blocking.value: Integer[0 to 10],3,0;
+Blocking.cost: Integer[0 to 10],5,0;
+Non_blocking.value: Integer[0 to 10],4,0;
+Non_blocking.cost: Integer[0 to 10],10,0;
+Callback.value: Integer[0 to 10],8,0;
+Callback.cost: Integer[0 to 10],9,0;
+Sender.value: Integer[0 to 10],5,0;
+Sender.cost: Integer[0 to 10],8,0;
+Queued.value: Integer[0 to 10],7,0;
+Queued.cost: Integer[0 to 10],8,0;
+Non_Queued.value: Integer[0 to 10],6,0;
+Non_Queued.cost: Integer[0 to 10],8,0;
+Push.value: Integer[0 to 10],4,0;
+Push.cost: Integer[0 to 10],3,0;
+CAN.value: Integer[0 to 10],6,0;
+CAN.cost: Integer[0 to 10],2,0;
+Local.value: Integer[0 to 10],8,0;
+Local.cost: Integer[0 to 10],10,0;
+
+%Constraints
+

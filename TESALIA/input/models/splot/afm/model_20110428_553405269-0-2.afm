@@ -1,0 +1,60 @@
+%Relationships
+CDODConsistency :  ODSemantics  CDSemantics ;
+ODSemantics :  EmptyOMOD  CompletenessOD  ObjectTypingOD ;
+EmptyOMOD :  EmptyOMValidInstanceOD  EmptyOMInvalidOD ;
+CompletenessOD :  ObjectsOD  LinksOD  AttributesOD  TypesOD ;
+ObjectsOD :  AllObjectsShownOD  AllowObjectsOmittedOD ;
+LinksOD :  AllLinksShownOD  AllowLinksOmittedOD ;
+AttributesOD :  AllAttributesShownOD  AllowAttributesOmittedOD ;
+TypesOD :  AllTypesShownOD  AllowTypesOmittedOD ;
+ObjectTypingOD :  StrictOD  NonStrictOD ;
+CDSemantics :  EmptyOMCD  CompletenessCD ;
+EmptyOMCD :  EmptyOMValidInstanceCD  EmptyOMInvalidCD ;
+CompletenessCD :  AttributesCD  ClassesCD ;
+AttributesCD :  AllAttributesShownCD  AllowAttributesOmittedCD ;
+ClassesCD :  AllClassesShownCD  AllowClassesOmittedCD ;
+
+%Attributes
+EmptyOMValidInstanceOD.value: Integer[0 to 10],8,0;
+EmptyOMValidInstanceOD.cost: Integer[0 to 10],7,0;
+EmptyOMInvalidOD.value: Integer[0 to 10],2,0;
+EmptyOMInvalidOD.cost: Integer[0 to 10],10,0;
+AllObjectsShownOD.value: Integer[0 to 10],1,0;
+AllObjectsShownOD.cost: Integer[0 to 10],1,0;
+AllowObjectsOmittedOD.value: Integer[0 to 10],3,0;
+AllowObjectsOmittedOD.cost: Integer[0 to 10],9,0;
+AllLinksShownOD.value: Integer[0 to 10],5,0;
+AllLinksShownOD.cost: Integer[0 to 10],1,0;
+AllowLinksOmittedOD.value: Integer[0 to 10],2,0;
+AllowLinksOmittedOD.cost: Integer[0 to 10],5,0;
+AllAttributesShownOD.value: Integer[0 to 10],8,0;
+AllAttributesShownOD.cost: Integer[0 to 10],4,0;
+AllowAttributesOmittedOD.value: Integer[0 to 10],1,0;
+AllowAttributesOmittedOD.cost: Integer[0 to 10],1,0;
+AllTypesShownOD.value: Integer[0 to 10],1,0;
+AllTypesShownOD.cost: Integer[0 to 10],8,0;
+AllowTypesOmittedOD.value: Integer[0 to 10],1,0;
+AllowTypesOmittedOD.cost: Integer[0 to 10],5,0;
+StrictOD.value: Integer[0 to 10],4,0;
+StrictOD.cost: Integer[0 to 10],5,0;
+NonStrictOD.value: Integer[0 to 10],3,0;
+NonStrictOD.cost: Integer[0 to 10],6,0;
+EmptyOMValidInstanceCD.value: Integer[0 to 10],9,0;
+EmptyOMValidInstanceCD.cost: Integer[0 to 10],5,0;
+EmptyOMInvalidCD.value: Integer[0 to 10],3,0;
+EmptyOMInvalidCD.cost: Integer[0 to 10],1,0;
+AllAttributesShownCD.value: Integer[0 to 10],3,0;
+AllAttributesShownCD.cost: Integer[0 to 10],4,0;
+AllowAttributesOmittedCD.value: Integer[0 to 10],1,0;
+AllowAttributesOmittedCD.cost: Integer[0 to 10],6,0;
+AllClassesShownCD.value: Integer[0 to 10],5,0;
+AllClassesShownCD.cost: Integer[0 to 10],3,0;
+AllowClassesOmittedCD.value: Integer[0 to 10],3,0;
+AllowClassesOmittedCD.cost: Integer[0 to 10],1,0;
+
+%Constraints
+AllowObjectsOmittedOD REQUIRES AllowLinksOmittedOD;
+AllowClassesOmittedCD EXCLUDES AllowTypesOmittedOD;
+EmptyOMValidInstanceOD REQUIRES EmptyOMValidInstanceCD;
+EmptyOMValidInstanceCD REQUIRES EmptyOMValidInstanceOD;
+

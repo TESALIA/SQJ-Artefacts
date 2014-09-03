@@ -1,0 +1,31 @@
+%Relationships
+cellphone : [wireless]  accu_cell  display ;
+wireless : [1,2] {infrared bluetooth };
+accu_cell :  li_ion  ni_mh  ni_ca ;
+display :  color  monochrome ;
+
+%Attributes
+infrared.value: Integer[0 to 10],4,0;
+infrared.cost: Integer[0 to 10],6,0;
+bluetooth.value: Integer[0 to 10],4,0;
+bluetooth.cost: Integer[0 to 10],3,0;
+li_ion.value: Integer[0 to 10],0,0;
+li_ion.cost: Integer[0 to 10],7,0;
+ni_mh.value: Integer[0 to 10],9,0;
+ni_mh.cost: Integer[0 to 10],8,0;
+ni_ca.value: Integer[0 to 10],4,0;
+ni_ca.cost: Integer[0 to 10],2,0;
+color.value: Integer[0 to 10],1,0;
+color.cost: Integer[0 to 10],8,0;
+monochrome.value: Integer[0 to 10],7,0;
+monochrome.cost: Integer[0 to 10],9,0;
+
+%Constraints
+bluetooth REQUIRES li_ion;
+color EXCLUDES ni_ca;
+monochrome.value > 1 IFF color.cost != 5;
+ni_ca.cost == 1 IMPLIES monochrome.cost < 1;
+bluetooth.value > 5 IMPLIES ni_mh.cost != 3;
+bluetooth.cost == 6 AND ni_ca.cost <= 9;
+color.value != 7 OR bluetooth.value == 0;
+

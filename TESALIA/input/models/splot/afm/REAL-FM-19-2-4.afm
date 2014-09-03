@@ -1,0 +1,65 @@
+%Relationships
+graph :  services ;
+services :  graph_manipulation [do_undo_redo] [zoom_inout] ;
+graph_manipulation :  delete  select  add  move [compose] [layer_adjust] ;
+select :  selection_mode ;
+selection_mode :  increment_selection  non_increment_selection ;
+add :  entity_add  connector_add ;
+move :  moving_mode [moving_constraint] ;
+moving_mode :  outline_moving  content_moving ;
+moving_constraint :  horizontal_constraint  vertical_constraint ;
+layer_adjust :  up_layer  down_layer ;
+do_undo_redo :  select_do_undo_redo  add_do_undo_redo  delete__do_undo_redo  move_do_undo_redo [compose_do_undo_redo] [layer_adjust_do_undo_redo] ;
+
+%Attributes
+delete.value: Integer[0 to 10],0,0;
+delete.cost: Integer[0 to 10],4,0;
+increment_selection.value: Integer[0 to 10],7,0;
+increment_selection.cost: Integer[0 to 10],6,0;
+non_increment_selection.value: Integer[0 to 10],8,0;
+non_increment_selection.cost: Integer[0 to 10],10,0;
+entity_add.value: Integer[0 to 10],9,0;
+entity_add.cost: Integer[0 to 10],8,0;
+connector_add.value: Integer[0 to 10],7,0;
+connector_add.cost: Integer[0 to 10],8,0;
+outline_moving.value: Integer[0 to 10],2,0;
+outline_moving.cost: Integer[0 to 10],6,0;
+content_moving.value: Integer[0 to 10],2,0;
+content_moving.cost: Integer[0 to 10],3,0;
+horizontal_constraint.value: Integer[0 to 10],9,0;
+horizontal_constraint.cost: Integer[0 to 10],2,0;
+vertical_constraint.value: Integer[0 to 10],10,0;
+vertical_constraint.cost: Integer[0 to 10],7,0;
+compose.value: Integer[0 to 10],6,0;
+compose.cost: Integer[0 to 10],9,0;
+up_layer.value: Integer[0 to 10],7,0;
+up_layer.cost: Integer[0 to 10],8,0;
+down_layer.value: Integer[0 to 10],6,0;
+down_layer.cost: Integer[0 to 10],7,0;
+select_do_undo_redo.value: Integer[0 to 10],4,0;
+select_do_undo_redo.cost: Integer[0 to 10],0,0;
+add_do_undo_redo.value: Integer[0 to 10],1,0;
+add_do_undo_redo.cost: Integer[0 to 10],4,0;
+delete__do_undo_redo.value: Integer[0 to 10],4,0;
+delete__do_undo_redo.cost: Integer[0 to 10],0,0;
+move_do_undo_redo.value: Integer[0 to 10],6,0;
+move_do_undo_redo.cost: Integer[0 to 10],7,0;
+compose_do_undo_redo.value: Integer[0 to 10],9,0;
+compose_do_undo_redo.cost: Integer[0 to 10],8,0;
+layer_adjust_do_undo_redo.value: Integer[0 to 10],10,0;
+layer_adjust_do_undo_redo.cost: Integer[0 to 10],4,0;
+zoom_inout.value: Integer[0 to 10],4,0;
+zoom_inout.cost: Integer[0 to 10],6,0;
+
+%Constraints
+do_undo_redo REQUIRES graph_manipulation;
+zoom_inout REQUIRES graph_manipulation;
+compose EXCLUDES compose_do_undo_redo;
+compose_do_undo_redo REQUIRES compose;
+compose_do_undo_redo REQUIRES do_undo_redo;
+layer_adjust EXCLUDES layer_adjust_do_undo_redo;
+layer_adjust_do_undo_redo REQUIRES do_undo_redo;
+layer_adjust_do_undo_redo REQUIRES layer_adjust;
+content_moving.cost < 1 OR layer_adjust_do_undo_redo.value < 6;
+horizontal_constraint.value <= 9 AND entity_add.cost != 9;
+

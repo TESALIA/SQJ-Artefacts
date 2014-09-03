@@ -1,0 +1,31 @@
+%Relationships
+tecom : [ipvoice]  rack [messaging] ;
+ipvoice :  software ;
+software :  swpack1  swpack2 ;
+rack :  sizes ;
+sizes :  large  medium  small ;
+messaging : [upgrade_swpack] ;
+
+%Attributes
+swpack1.value: Integer[0 to 10],9,0;
+swpack1.cost: Integer[0 to 10],6,0;
+swpack2.value: Integer[0 to 10],4,0;
+swpack2.cost: Integer[0 to 10],3,0;
+large.value: Integer[0 to 10],4,0;
+large.cost: Integer[0 to 10],5,0;
+medium.value: Integer[0 to 10],2,0;
+medium.cost: Integer[0 to 10],3,0;
+small.value: Integer[0 to 10],9,0;
+small.cost: Integer[0 to 10],2,0;
+upgrade_swpack.value: Integer[0 to 10],4,0;
+upgrade_swpack.cost: Integer[0 to 10],4,0;
+
+%Constraints
+swpack1 EXCLUDES upgrade_swpack;
+ipvoice EXCLUDES upgrade_swpack;
+medium.cost == 3 OR upgrade_swpack.cost != 4;
+swpack2.value == 5 IMPLIES upgrade_swpack.value < 5;
+swpack1.cost < 9 OR upgrade_swpack.cost == 5;
+swpack1.value < 0 OR swpack2.cost == 1;
+swpack1.cost < 7 AND small.value != 5;
+

@@ -1,0 +1,27 @@
+%Relationships
+_r :  _r_1 [_r_2]  _r_3 [_r_7] ;
+_r_3 :  _r_3_14_15  _r_3_14_17  _r_3_14_18 ;
+_r_7 : [1,2] {_r_7_20_21 _r_7_20_22 };
+
+%Attributes
+_r_1.value: Integer[0 to 10],7,0;
+_r_1.cost: Integer[0 to 10],1,0;
+_r_2.value: Integer[0 to 10],5,0;
+_r_2.cost: Integer[0 to 10],10,0;
+_r_3_14_15.value: Integer[0 to 10],1,0;
+_r_3_14_15.cost: Integer[0 to 10],9,0;
+_r_3_14_17.value: Integer[0 to 10],10,0;
+_r_3_14_17.cost: Integer[0 to 10],8,0;
+_r_3_14_18.value: Integer[0 to 10],1,0;
+_r_3_14_18.cost: Integer[0 to 10],4,0;
+_r_7_20_21.value: Integer[0 to 10],4,0;
+_r_7_20_21.cost: Integer[0 to 10],6,0;
+_r_7_20_22.value: Integer[0 to 10],10,0;
+_r_7_20_22.cost: Integer[0 to 10],1,0;
+
+%Constraints
+_r_2 EXCLUDES _r_3_14_15;
+_r_3_14_18 REQUIRES _r_7_20_21;
+_r_2.value < 1 AND _r_3_14_15.value > 8;
+_r_3_14_18.value >= 6 OR _r_7_20_22.value >= 6;
+

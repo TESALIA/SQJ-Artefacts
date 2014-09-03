@@ -1,0 +1,71 @@
+%Relationships
+_r :  _r_1 [_r_7] [_r_15] [__r_15]  _r_16 [_r_17] [_r_18] [_r_22] [_r_23] [_r_25] [_r_26] [_r_27] [_r_28] [_r_29] [_r_30] [_r_31] [_r_32] [_r_33] [_r_34] ;
+_r_1 : [1,4] {_r_1_2_3 _r_1_2_4 _r_1_2_5 _r_1_2_6 };
+_r_7 : [1,6] {_r_7_8_9 _r_7_8_10 _r_7_8_11 _r_7_8_12 _r_7_8_13 _r_7_8_14 };
+_r_18 : [1,2] {_r_18_19_20 _r_18_19_21 };
+
+%Attributes
+_r_1_2_3.value: Integer[0 to 10],1,0;
+_r_1_2_3.cost: Integer[0 to 10],9,0;
+_r_1_2_4.value: Integer[0 to 10],7,0;
+_r_1_2_4.cost: Integer[0 to 10],8,0;
+_r_1_2_5.value: Integer[0 to 10],2,0;
+_r_1_2_5.cost: Integer[0 to 10],4,0;
+_r_1_2_6.value: Integer[0 to 10],4,0;
+_r_1_2_6.cost: Integer[0 to 10],7,0;
+_r_7_8_9.value: Integer[0 to 10],4,0;
+_r_7_8_9.cost: Integer[0 to 10],4,0;
+_r_7_8_10.value: Integer[0 to 10],2,0;
+_r_7_8_10.cost: Integer[0 to 10],3,0;
+_r_7_8_11.value: Integer[0 to 10],5,0;
+_r_7_8_11.cost: Integer[0 to 10],9,0;
+_r_7_8_12.value: Integer[0 to 10],6,0;
+_r_7_8_12.cost: Integer[0 to 10],9,0;
+_r_7_8_13.value: Integer[0 to 10],5,0;
+_r_7_8_13.cost: Integer[0 to 10],3,0;
+_r_7_8_14.value: Integer[0 to 10],1,0;
+_r_7_8_14.cost: Integer[0 to 10],0,0;
+_r_15.value: Integer[0 to 10],5,0;
+_r_15.cost: Integer[0 to 10],10,0;
+__r_15.value: Integer[0 to 10],7,0;
+__r_15.cost: Integer[0 to 10],3,0;
+_r_16.value: Integer[0 to 10],6,0;
+_r_16.cost: Integer[0 to 10],5,0;
+_r_17.value: Integer[0 to 10],3,0;
+_r_17.cost: Integer[0 to 10],8,0;
+_r_18_19_20.value: Integer[0 to 10],6,0;
+_r_18_19_20.cost: Integer[0 to 10],3,0;
+_r_18_19_21.value: Integer[0 to 10],1,0;
+_r_18_19_21.cost: Integer[0 to 10],2,0;
+_r_22.value: Integer[0 to 10],0,0;
+_r_22.cost: Integer[0 to 10],7,0;
+_r_23.value: Integer[0 to 10],10,0;
+_r_23.cost: Integer[0 to 10],5,0;
+_r_25.value: Integer[0 to 10],6,0;
+_r_25.cost: Integer[0 to 10],1,0;
+_r_26.value: Integer[0 to 10],0,0;
+_r_26.cost: Integer[0 to 10],4,0;
+_r_27.value: Integer[0 to 10],10,0;
+_r_27.cost: Integer[0 to 10],2,0;
+_r_28.value: Integer[0 to 10],1,0;
+_r_28.cost: Integer[0 to 10],7,0;
+_r_29.value: Integer[0 to 10],9,0;
+_r_29.cost: Integer[0 to 10],1,0;
+_r_30.value: Integer[0 to 10],1,0;
+_r_30.cost: Integer[0 to 10],1,0;
+_r_31.value: Integer[0 to 10],6,0;
+_r_31.cost: Integer[0 to 10],3,0;
+_r_32.value: Integer[0 to 10],1,0;
+_r_32.cost: Integer[0 to 10],3,0;
+_r_33.value: Integer[0 to 10],8,0;
+_r_33.cost: Integer[0 to 10],2,0;
+_r_34.value: Integer[0 to 10],8,0;
+_r_34.cost: Integer[0 to 10],8,0;
+
+%Constraints
+_r_22.cost > 4 AND _r_26.cost < 3;
+_r_1_2_6.value > 7 IFF _r_30.cost > 6;
+_r_29.cost > 4 OR _r_34.value >= 1;
+_r_1_2_6.cost >= 9 IMPLIES _r_30.cost > 8;
+_r_7_8_11.value != 2 AND _r_7_8_14.cost < 3;
+

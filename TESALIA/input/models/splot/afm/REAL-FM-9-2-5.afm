@@ -1,0 +1,34 @@
+%Relationships
+james :  user_mngt [ws_interface]  gui  core  modules ;
+user_mngt :  db  ldap ;
+gui : [1,2] {pc pda };
+modules : [1,4] {calendar forum congress_mngt repository };
+
+%Attributes
+db.value: Integer[0 to 10],4,0;
+db.cost: Integer[0 to 10],3,0;
+ldap.value: Integer[0 to 10],1,0;
+ldap.cost: Integer[0 to 10],2,0;
+ws_interface.value: Integer[0 to 10],0,0;
+ws_interface.cost: Integer[0 to 10],6,0;
+pc.value: Integer[0 to 10],9,0;
+pc.cost: Integer[0 to 10],5,0;
+pda.value: Integer[0 to 10],8,0;
+pda.cost: Integer[0 to 10],9,0;
+core.value: Integer[0 to 10],1,0;
+core.cost: Integer[0 to 10],9,0;
+calendar.value: Integer[0 to 10],8,0;
+calendar.cost: Integer[0 to 10],1,0;
+forum.value: Integer[0 to 10],1,0;
+forum.cost: Integer[0 to 10],7,0;
+congress_mngt.value: Integer[0 to 10],1,0;
+congress_mngt.cost: Integer[0 to 10],9,0;
+repository.value: Integer[0 to 10],6,0;
+repository.cost: Integer[0 to 10],1,0;
+
+%Constraints
+pda EXCLUDES repository;
+congress_mngt REQUIRES repository;
+ws_interface.cost != 9 IFF repository.cost >= 6;
+calendar.value > 5 OR repository.cost <= 9;
+

@@ -1,0 +1,31 @@
+%Relationships
+jplug :  interface [gui_builder] [model_code_synch] [compiler] [diagram_builder] ;
+interface :  sdi  mdi ;
+gui_builder :  java [qt] ;
+compiler : [1,2] {javac mvc };
+diagram_builder :  uml [petri_net] ;
+
+%Attributes
+sdi.value: Integer[0 to 10],7,0;
+sdi.cost: Integer[0 to 10],7,0;
+mdi.value: Integer[0 to 10],3,0;
+mdi.cost: Integer[0 to 10],7,0;
+java.value: Integer[0 to 10],8,0;
+java.cost: Integer[0 to 10],10,0;
+qt.value: Integer[0 to 10],6,0;
+qt.cost: Integer[0 to 10],4,0;
+model_code_synch.value: Integer[0 to 10],1,0;
+model_code_synch.cost: Integer[0 to 10],0,0;
+javac.value: Integer[0 to 10],1,0;
+javac.cost: Integer[0 to 10],1,0;
+mvc.value: Integer[0 to 10],0,0;
+mvc.cost: Integer[0 to 10],8,0;
+uml.value: Integer[0 to 10],2,0;
+uml.cost: Integer[0 to 10],10,0;
+petri_net.value: Integer[0 to 10],5,0;
+petri_net.cost: Integer[0 to 10],4,0;
+
+%Constraints
+gui_builder EXCLUDES sdi;
+model_code_synch REQUIRES diagram_builder;
+

@@ -1,0 +1,36 @@
+%Relationships
+_r :  _r_4  _r_11  _r_15  _r_19  _r_25 ;
+_r_4 :  _r_4_5_6  _r_4_5_7 ;
+_r_11 :  _r_11_12_13  _r_11_12_14 ;
+_r_15 :  _r_15_18 ;
+_r_19 :  _r_19_20_21  _r_19_20_24 ;
+_r_25 :  _r_25_26_27  _r_25_26_28 ;
+
+%Attributes
+_r_4_5_6.value: Integer[0 to 10],9,0;
+_r_4_5_6.cost: Integer[0 to 10],3,0;
+_r_4_5_7.value: Integer[0 to 10],0,0;
+_r_4_5_7.cost: Integer[0 to 10],4,0;
+_r_11_12_13.value: Integer[0 to 10],6,0;
+_r_11_12_13.cost: Integer[0 to 10],1,0;
+_r_11_12_14.value: Integer[0 to 10],6,0;
+_r_11_12_14.cost: Integer[0 to 10],10,0;
+_r_15_18.value: Integer[0 to 10],7,0;
+_r_15_18.cost: Integer[0 to 10],6,0;
+_r_19_20_21.value: Integer[0 to 10],1,0;
+_r_19_20_21.cost: Integer[0 to 10],5,0;
+_r_19_20_24.value: Integer[0 to 10],5,0;
+_r_19_20_24.cost: Integer[0 to 10],4,0;
+_r_25_26_27.value: Integer[0 to 10],5,0;
+_r_25_26_27.cost: Integer[0 to 10],7,0;
+_r_25_26_28.value: Integer[0 to 10],2,0;
+_r_25_26_28.cost: Integer[0 to 10],2,0;
+
+%Constraints
+_r_4_5_7 REQUIRES _r_25_26_27;
+_r_4_5_6 REQUIRES _r_25_26_28;
+_r_4_5_6 REQUIRES _r_19_20_24;
+_r_4_5_7 REQUIRES _r_19_20_21;
+_r_11_12_14.value >= 0 OR _r_25_26_28.value != 5;
+_r_15_18.value != 4 AND _r_25_26_28.value >= 2;
+

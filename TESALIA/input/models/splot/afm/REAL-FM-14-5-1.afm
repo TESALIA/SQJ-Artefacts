@@ -1,0 +1,39 @@
+%Relationships
+editor_config :  backup [document_class] ;
+backup : [autosave] [backup_onchange]  backup_extension ;
+autosave :  mi_nutes ;
+backup_extension :  file_bak  file_bak_ext  file_ext_bak ;
+document_class :  associated_file_ext  commands [syntax_highlighting] ;
+associated_file_ext : [ext] ;
+commands : [remove_blank_lines] [spell_check] [dos_unix_conversion] ;
+syntax_highlighting :  syntax_definition_file ;
+
+%Attributes
+mi_nutes.value: Integer[0 to 10],6,0;
+mi_nutes.cost: Integer[0 to 10],5,0;
+backup_onchange.value: Integer[0 to 10],3,0;
+backup_onchange.cost: Integer[0 to 10],2,0;
+file_bak.value: Integer[0 to 10],5,0;
+file_bak.cost: Integer[0 to 10],9,0;
+file_bak_ext.value: Integer[0 to 10],6,0;
+file_bak_ext.cost: Integer[0 to 10],1,0;
+file_ext_bak.value: Integer[0 to 10],9,0;
+file_ext_bak.cost: Integer[0 to 10],9,0;
+ext.value: Integer[0 to 10],3,0;
+ext.cost: Integer[0 to 10],10,0;
+remove_blank_lines.value: Integer[0 to 10],4,0;
+remove_blank_lines.cost: Integer[0 to 10],7,0;
+spell_check.value: Integer[0 to 10],0,0;
+spell_check.cost: Integer[0 to 10],2,0;
+dos_unix_conversion.value: Integer[0 to 10],4,0;
+dos_unix_conversion.cost: Integer[0 to 10],8,0;
+syntax_definition_file.value: Integer[0 to 10],1,0;
+syntax_definition_file.cost: Integer[0 to 10],2,0;
+
+%Constraints
+file_bak_ext.value >= 1 IMPLIES file_bak.cost < 2;
+syntax_definition_file.value != 4 AND file_bak_ext.value == 3;
+remove_blank_lines.value < 8 AND syntax_definition_file.cost >= 6;
+syntax_definition_file.cost <= 8 IFF remove_blank_lines.cost >= 3;
+spell_check.cost > 1 IMPLIES syntax_definition_file.value <= 6;
+

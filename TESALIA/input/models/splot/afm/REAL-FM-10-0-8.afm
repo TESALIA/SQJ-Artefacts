@@ -1,0 +1,28 @@
+%Relationships
+vof : [undefined_on_paper]  follow_me [virtual_printer] ;
+follow_me : [_undefined_on_paper]  user_localize  logon ;
+user_localize :  user_pos_method ;
+user_pos_method :  access_point  rfid ;
+logon : [__undefined_on_paper] ;
+virtual_printer :  printer_register  file_upload [file_converter] ;
+
+%Attributes
+undefined_on_paper.value: Integer[0 to 10],8,0;
+undefined_on_paper.cost: Integer[0 to 10],3,0;
+_undefined_on_paper.value: Integer[0 to 10],3,0;
+_undefined_on_paper.cost: Integer[0 to 10],10,0;
+access_point.value: Integer[0 to 10],1,0;
+access_point.cost: Integer[0 to 10],3,0;
+rfid.value: Integer[0 to 10],4,0;
+rfid.cost: Integer[0 to 10],3,0;
+__undefined_on_paper.value: Integer[0 to 10],8,0;
+__undefined_on_paper.cost: Integer[0 to 10],7,0;
+printer_register.value: Integer[0 to 10],4,0;
+printer_register.cost: Integer[0 to 10],4,0;
+file_upload.value: Integer[0 to 10],3,0;
+file_upload.cost: Integer[0 to 10],2,0;
+file_converter.value: Integer[0 to 10],1,0;
+file_converter.cost: Integer[0 to 10],9,0;
+
+%Constraints
+

@@ -1,0 +1,45 @@
+%Relationships
+FAME_DBMS :  OS  Buffer_Manager [Debug_Logging]  Storage ;
+OS :  Nut_OS  Win ;
+Buffer_Manager :  Persistent  In_Memory ;
+Persistent :  Memory_Allocation  Page_Replication ;
+Memory_Allocation :  Static  Dynamic ;
+Page_Replication :  LRU  LFU ;
+Storage :  API  Bmas_Tree  Unindexed ;
+API : [Get] [Put] [Delete] ;
+
+%Attributes
+Nut_OS.value: Integer[0 to 10],1,0;
+Nut_OS.cost: Integer[0 to 10],8,0;
+Win.value: Integer[0 to 10],2,0;
+Win.cost: Integer[0 to 10],5,0;
+Static.value: Integer[0 to 10],8,0;
+Static.cost: Integer[0 to 10],4,0;
+Dynamic.value: Integer[0 to 10],9,0;
+Dynamic.cost: Integer[0 to 10],5,0;
+LRU.value: Integer[0 to 10],2,0;
+LRU.cost: Integer[0 to 10],2,0;
+LFU.value: Integer[0 to 10],6,0;
+LFU.cost: Integer[0 to 10],3,0;
+In_Memory.value: Integer[0 to 10],9,0;
+In_Memory.cost: Integer[0 to 10],7,0;
+Debug_Logging.value: Integer[0 to 10],0,0;
+Debug_Logging.cost: Integer[0 to 10],1,0;
+Get.value: Integer[0 to 10],9,0;
+Get.cost: Integer[0 to 10],4,0;
+Put.value: Integer[0 to 10],5,0;
+Put.cost: Integer[0 to 10],7,0;
+Delete.value: Integer[0 to 10],4,0;
+Delete.cost: Integer[0 to 10],8,0;
+Bmas_Tree.value: Integer[0 to 10],5,0;
+Bmas_Tree.cost: Integer[0 to 10],9,0;
+Unindexed.value: Integer[0 to 10],8,0;
+Unindexed.cost: Integer[0 to 10],3,0;
+
+%Constraints
+Delete.cost != 1 AND Debug_Logging.value > 3;
+LRU.value != 7 AND Get.value <= 5;
+Win.cost <= 3 OR Debug_Logging.value > 4;
+Nut_OS.cost != 1 IMPLIES Get.cost == 5;
+Put.cost >= 7 OR LRU.value <= 7;
+

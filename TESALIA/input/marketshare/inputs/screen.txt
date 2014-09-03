@@ -1,0 +1,10 @@
+small;ldpi;11000
+small;hdpi;17000
+normal;ldpi;40000
+normal;mdpi;114000
+normal;hdpi;519000
+normal;xhdpi;223000
+large;ldpi;1000
+large;mdpi;25000
+large;xhdpi;39000
+xlarge;mdpi;47000

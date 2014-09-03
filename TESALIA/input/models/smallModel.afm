@@ -1,0 +1,10 @@
+%Relationships
+ANDROID : [AUDIO] COMMUNICATIONS;
+COMMUNICATIONS:[1,2]{WIFI BLUETOOTH};
+%Attributes
+AUDIO.cost:[1],1,0;
+WIFI.cost:[1],1,0;
+BLUETOOTH.cost:[1],1,0;
+AUDIO.value:[2],2,0;
+WIFI.value:[1],1,0;
+BLUETOOTH.value:[3],3,0;

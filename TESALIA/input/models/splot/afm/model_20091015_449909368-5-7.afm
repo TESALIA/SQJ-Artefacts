@@ -1,0 +1,28 @@
+%Relationships
+_r :  _r_1  _r_2 [_r_3] ;
+_r_1 :  _r_1_4 [_r_1_5] ;
+_r_2 :  _r_2_6_7  _r_2_6_8 ;
+_r_3 : [1,2] {_r_3_9_10 _r_3_9_11 };
+
+%Attributes
+_r_1_4.value: Integer[0 to 10],0,0;
+_r_1_4.cost: Integer[0 to 10],0,0;
+_r_1_5.value: Integer[0 to 10],8,0;
+_r_1_5.cost: Integer[0 to 10],1,0;
+_r_2_6_7.value: Integer[0 to 10],1,0;
+_r_2_6_7.cost: Integer[0 to 10],10,0;
+_r_2_6_8.value: Integer[0 to 10],7,0;
+_r_2_6_8.cost: Integer[0 to 10],3,0;
+_r_3_9_10.value: Integer[0 to 10],1,0;
+_r_3_9_10.cost: Integer[0 to 10],2,0;
+_r_3_9_11.value: Integer[0 to 10],7,0;
+_r_3_9_11.cost: Integer[0 to 10],4,0;
+
+%Constraints
+_r_1_5 REQUIRES _r_3_9_11;
+_r_1_4.value > 6 IFF _r_2_6_7.cost != 4;
+_r_3_9_10.value < 5 OR _r_1_5.cost >= 1;
+_r_2_6_8.cost >= 5 IMPLIES _r_3_9_11.cost <= 4;
+_r_3_9_11.value > 1 IMPLIES _r_1_4.cost == 8;
+_r_1_4.cost < 0 OR _r_2_6_7.value == 9;
+

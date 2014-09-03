@@ -1,0 +1,24 @@
+%Relationships
+_r :  _r_1  _r_2 ;
+_r_1 :  _r_1_3  _r_1_4  _r_1_5  _r_1_6 [_r_1_7]  _r_1_8_9  _r_1_10_11 ;
+
+%Attributes
+_r_1_3.value: Integer[0 to 10],3,0;
+_r_1_3.cost: Integer[0 to 10],2,0;
+_r_1_4.value: Integer[0 to 10],4,0;
+_r_1_4.cost: Integer[0 to 10],10,0;
+_r_1_5.value: Integer[0 to 10],1,0;
+_r_1_5.cost: Integer[0 to 10],8,0;
+_r_1_6.value: Integer[0 to 10],1,0;
+_r_1_6.cost: Integer[0 to 10],3,0;
+_r_1_7.value: Integer[0 to 10],9,0;
+_r_1_7.cost: Integer[0 to 10],0,0;
+_r_1_8_9.value: Integer[0 to 10],7,0;
+_r_1_8_9.cost: Integer[0 to 10],4,0;
+_r_1_10_11.value: Integer[0 to 10],5,0;
+_r_1_10_11.cost: Integer[0 to 10],7,0;
+_r_2.value: Integer[0 to 10],2,0;
+_r_2.cost: Integer[0 to 10],2,0;
+
+%Constraints
+

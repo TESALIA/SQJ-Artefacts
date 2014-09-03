@@ -1,0 +1,37 @@
+%Relationships
+_r :  _r_18  _r_24 [_r_31] ;
+_r_18 :  _r_18_19_20  _r_18_19_21  _r_18_19_22  _r_18_19_23 ;
+_r_24 :  _r_24_25_26  _r_24_25_27 ;
+_r_24_25_27 :  _r_24_25_27_28_29  _r_24_25_27_28_30 ;
+_r_31 :  _r_31_32_33  _r_31_32_34  _r_31_32_35 ;
+
+%Attributes
+_r_18_19_20.value: Integer[0 to 10],0,0;
+_r_18_19_20.cost: Integer[0 to 10],10,0;
+_r_18_19_21.value: Integer[0 to 10],8,0;
+_r_18_19_21.cost: Integer[0 to 10],0,0;
+_r_18_19_22.value: Integer[0 to 10],4,0;
+_r_18_19_22.cost: Integer[0 to 10],6,0;
+_r_18_19_23.value: Integer[0 to 10],10,0;
+_r_18_19_23.cost: Integer[0 to 10],9,0;
+_r_24_25_26.value: Integer[0 to 10],6,0;
+_r_24_25_26.cost: Integer[0 to 10],5,0;
+_r_24_25_27_28_29.value: Integer[0 to 10],7,0;
+_r_24_25_27_28_29.cost: Integer[0 to 10],10,0;
+_r_24_25_27_28_30.value: Integer[0 to 10],10,0;
+_r_24_25_27_28_30.cost: Integer[0 to 10],8,0;
+_r_31_32_33.value: Integer[0 to 10],2,0;
+_r_31_32_33.cost: Integer[0 to 10],6,0;
+_r_31_32_34.value: Integer[0 to 10],5,0;
+_r_31_32_34.cost: Integer[0 to 10],4,0;
+_r_31_32_35.value: Integer[0 to 10],1,0;
+_r_31_32_35.cost: Integer[0 to 10],2,0;
+
+%Constraints
+_r_18_19_20 REQUIRES _r_24_25_27_28_29;
+_r_31_32_35.value > 3 AND _r_31_32_33.cost >= 3;
+_r_18_19_20.value >= 2 OR _r_24_25_26.cost < 3;
+_r_31_32_34.cost >= 7 IFF _r_18_19_23.value < 7;
+_r_31_32_35.value >= 4 IFF _r_31_32_33.value == 1;
+_r_24_25_26.value >= 3 IMPLIES _r_31_32_35.value <= 8;
+

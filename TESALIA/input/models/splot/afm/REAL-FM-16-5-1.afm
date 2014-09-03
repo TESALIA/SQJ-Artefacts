@@ -1,0 +1,56 @@
+%Relationships
+dvs :  control [network_hw]  server_pc  _play [client_pc] [handheld] ;
+control :  remote [telephone] [net] [edit]  play ;
+telephone : [sms] ;
+net : [web] [wap]  email ;
+edit : [add_music] ;
+play : [slides] [audio]  video ;
+network_hw : [modem] [ethernet] ;
+server_pc : [network] [irda_port] ;
+_play : [on_demand] ;
+client_pc : [_network] ;
+
+%Attributes
+remote.value: Integer[0 to 10],1,0;
+remote.cost: Integer[0 to 10],2,0;
+sms.value: Integer[0 to 10],4,0;
+sms.cost: Integer[0 to 10],1,0;
+web.value: Integer[0 to 10],7,0;
+web.cost: Integer[0 to 10],1,0;
+wap.value: Integer[0 to 10],4,0;
+wap.cost: Integer[0 to 10],1,0;
+email.value: Integer[0 to 10],10,0;
+email.cost: Integer[0 to 10],4,0;
+add_music.value: Integer[0 to 10],5,0;
+add_music.cost: Integer[0 to 10],2,0;
+slides.value: Integer[0 to 10],1,0;
+slides.cost: Integer[0 to 10],1,0;
+audio.value: Integer[0 to 10],9,0;
+audio.cost: Integer[0 to 10],8,0;
+video.value: Integer[0 to 10],6,0;
+video.cost: Integer[0 to 10],7,0;
+modem.value: Integer[0 to 10],5,0;
+modem.cost: Integer[0 to 10],6,0;
+ethernet.value: Integer[0 to 10],6,0;
+ethernet.cost: Integer[0 to 10],4,0;
+network.value: Integer[0 to 10],2,0;
+network.cost: Integer[0 to 10],8,0;
+irda_port.value: Integer[0 to 10],6,0;
+irda_port.cost: Integer[0 to 10],1,0;
+on_demand.value: Integer[0 to 10],9,0;
+on_demand.cost: Integer[0 to 10],9,0;
+_network.value: Integer[0 to 10],9,0;
+_network.cost: Integer[0 to 10],5,0;
+handheld.value: Integer[0 to 10],1,0;
+handheld.cost: Integer[0 to 10],4,0;
+
+%Constraints
+net REQUIRES network_hw;
+handheld REQUIRES irda_port;
+add_music REQUIRES audio;
+ethernet.cost >= 2 IFF network.cost <= 2;
+_network.value <= 9 IMPLIES audio.cost >= 0;
+ethernet.value == 1 AND audio.value >= 7;
+slides.cost > 2 IFF irda_port.value < 8;
+video.value != 3 IFF sms.value == 6;
+

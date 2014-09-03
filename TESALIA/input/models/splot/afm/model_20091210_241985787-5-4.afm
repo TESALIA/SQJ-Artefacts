@@ -1,0 +1,36 @@
+%Relationships
+_r :  _r_3 [_r_9] [_r_11] [_r_17] [_r_20] [_r_23] ;
+_r_3 : [1,4] {_r_3_29_30 _r_3_29_32 _r_3_29_33 _r_3_29_34 };
+_r_9 : [_r_9_10] ;
+_r_11 : [_r_11_13] ;
+_r_17 : [_r_17_19] ;
+_r_20 : [_r_20_22] ;
+_r_23 : [_r_23_24] ;
+
+%Attributes
+_r_3_29_30.value: Integer[0 to 10],3,0;
+_r_3_29_30.cost: Integer[0 to 10],4,0;
+_r_3_29_32.value: Integer[0 to 10],2,0;
+_r_3_29_32.cost: Integer[0 to 10],8,0;
+_r_3_29_33.value: Integer[0 to 10],6,0;
+_r_3_29_33.cost: Integer[0 to 10],6,0;
+_r_3_29_34.value: Integer[0 to 10],8,0;
+_r_3_29_34.cost: Integer[0 to 10],4,0;
+_r_9_10.value: Integer[0 to 10],0,0;
+_r_9_10.cost: Integer[0 to 10],1,0;
+_r_11_13.value: Integer[0 to 10],6,0;
+_r_11_13.cost: Integer[0 to 10],1,0;
+_r_17_19.value: Integer[0 to 10],7,0;
+_r_17_19.cost: Integer[0 to 10],5,0;
+_r_20_22.value: Integer[0 to 10],2,0;
+_r_20_22.cost: Integer[0 to 10],7,0;
+_r_23_24.value: Integer[0 to 10],9,0;
+_r_23_24.cost: Integer[0 to 10],2,0;
+
+%Constraints
+_r_20_22.value <= 8 IMPLIES _r_3_29_33.value != 4;
+_r_3_29_30.cost > 8 IFF _r_17_19.value > 2;
+_r_9_10.value < 4 AND _r_20_22.value <= 9;
+_r_9_10.cost == 7 OR _r_17_19.value >= 5;
+_r_3_29_33.value < 1 IMPLIES _r_23_24.cost >= 2;
+

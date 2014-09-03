@@ -1,0 +1,72 @@
+%Relationships
+_r :  _r_1  _r_7  _r_14  _r_23  _r_29 [_r_33] ;
+_r_1 :  _r_1_2_3  _r_1_2_4  _r_1_2_5  _r_1_2_6 ;
+_r_7 :  _r_7_8_9  _r_7_8_12  _r_7_8_13 ;
+_r_14 :  _r_14_15_16  _r_14_15_17  _r_14_15_20  _r_14_15_21  _r_14_15_22 ;
+_r_23 :  _r_23_24_25  _r_23_24_26  _r_23_24_27  _r_23_24_28 ;
+_r_29 :  _r_29_30_31  _r_29_30_32 ;
+_r_33 : [1,2] {_r_33_34_35 _r_33_34_36 };
+
+%Attributes
+_r_1_2_3.value: Integer[0 to 10],3,0;
+_r_1_2_3.cost: Integer[0 to 10],3,0;
+_r_1_2_4.value: Integer[0 to 10],5,0;
+_r_1_2_4.cost: Integer[0 to 10],10,0;
+_r_1_2_5.value: Integer[0 to 10],8,0;
+_r_1_2_5.cost: Integer[0 to 10],5,0;
+_r_1_2_6.value: Integer[0 to 10],9,0;
+_r_1_2_6.cost: Integer[0 to 10],3,0;
+_r_7_8_9.value: Integer[0 to 10],0,0;
+_r_7_8_9.cost: Integer[0 to 10],2,0;
+_r_7_8_12.value: Integer[0 to 10],6,0;
+_r_7_8_12.cost: Integer[0 to 10],4,0;
+_r_7_8_13.value: Integer[0 to 10],8,0;
+_r_7_8_13.cost: Integer[0 to 10],9,0;
+_r_14_15_16.value: Integer[0 to 10],9,0;
+_r_14_15_16.cost: Integer[0 to 10],5,0;
+_r_14_15_17.value: Integer[0 to 10],1,0;
+_r_14_15_17.cost: Integer[0 to 10],2,0;
+_r_14_15_20.value: Integer[0 to 10],10,0;
+_r_14_15_20.cost: Integer[0 to 10],1,0;
+_r_14_15_21.value: Integer[0 to 10],7,0;
+_r_14_15_21.cost: Integer[0 to 10],4,0;
+_r_14_15_22.value: Integer[0 to 10],1,0;
+_r_14_15_22.cost: Integer[0 to 10],9,0;
+_r_23_24_25.value: Integer[0 to 10],7,0;
+_r_23_24_25.cost: Integer[0 to 10],6,0;
+_r_23_24_26.value: Integer[0 to 10],1,0;
+_r_23_24_26.cost: Integer[0 to 10],4,0;
+_r_23_24_27.value: Integer[0 to 10],3,0;
+_r_23_24_27.cost: Integer[0 to 10],3,0;
+_r_23_24_28.value: Integer[0 to 10],2,0;
+_r_23_24_28.cost: Integer[0 to 10],1,0;
+_r_29_30_31.value: Integer[0 to 10],1,0;
+_r_29_30_31.cost: Integer[0 to 10],2,0;
+_r_29_30_32.value: Integer[0 to 10],1,0;
+_r_29_30_32.cost: Integer[0 to 10],6,0;
+_r_33_34_35.value: Integer[0 to 10],4,0;
+_r_33_34_35.cost: Integer[0 to 10],10,0;
+_r_33_34_36.value: Integer[0 to 10],10,0;
+_r_33_34_36.cost: Integer[0 to 10],3,0;
+
+%Constraints
+_r_1_2_3 REQUIRES _r_7_8_9;
+_r_1_2_3 EXCLUDES _r_7_8_12;
+_r_1_2_3 EXCLUDES _r_7_8_13;
+_r_14_15_17 EXCLUDES _r_23_24_27;
+_r_14_15_17 EXCLUDES _r_23_24_28;
+_r_14_15_20 EXCLUDES _r_23_24_25;
+_r_14_15_16 EXCLUDES _r_23_24_27;
+_r_14_15_20 EXCLUDES _r_23_24_26;
+_r_14_15_16 EXCLUDES _r_23_24_28;
+_r_14_15_21 EXCLUDES _r_23_24_25;
+_r_1_2_5 EXCLUDES _r_7_8_9;
+_r_14_15_21 EXCLUDES _r_23_24_26;
+_r_1_2_6 EXCLUDES _r_7_8_9;
+_r_14_15_22 EXCLUDES _r_23_24_25;
+_r_14_15_22 EXCLUDES _r_23_24_26;
+_r_1_2_3 REQUIRES _r_7_8_9;
+_r_1_2_4 EXCLUDES _r_7_8_9;
+_r_1_2_4.cost != 9 IFF _r_7_8_12.cost > 1;
+_r_1_2_6.value < 0 IMPLIES _r_14_15_16.value < 3;
+

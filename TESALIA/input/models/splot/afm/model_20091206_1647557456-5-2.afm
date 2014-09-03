@@ -1,0 +1,27 @@
+%Relationships
+_r :  _r_1 [_r_2] [_r_3] ;
+_r_1 : [1,4] {_r_1_6_7 _r_1_6_8 _r_1_6_9 _r_1_6_10 };
+_r_2 : [_r_2_12] ;
+_r_3 : [_r_3_13] ;
+
+%Attributes
+_r_1_6_7.value: Integer[0 to 10],8,0;
+_r_1_6_7.cost: Integer[0 to 10],4,0;
+_r_1_6_8.value: Integer[0 to 10],3,0;
+_r_1_6_8.cost: Integer[0 to 10],10,0;
+_r_1_6_9.value: Integer[0 to 10],6,0;
+_r_1_6_9.cost: Integer[0 to 10],2,0;
+_r_1_6_10.value: Integer[0 to 10],4,0;
+_r_1_6_10.cost: Integer[0 to 10],0,0;
+_r_2_12.value: Integer[0 to 10],9,0;
+_r_2_12.cost: Integer[0 to 10],2,0;
+_r_3_13.value: Integer[0 to 10],2,0;
+_r_3_13.cost: Integer[0 to 10],7,0;
+
+%Constraints
+_r_1_6_9.cost == 4 IMPLIES _r_1_6_8.value != 4;
+_r_1_6_10.cost == 7 IMPLIES _r_3_13.value > 9;
+_r_3_13.value < 8 IMPLIES _r_1_6_8.value != 6;
+_r_3_13.value != 8 AND _r_1_6_9.value >= 7;
+_r_1_6_10.cost < 7 IMPLIES _r_1_6_9.value < 6;
+

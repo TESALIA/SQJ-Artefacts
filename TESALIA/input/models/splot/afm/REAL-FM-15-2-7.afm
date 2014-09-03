@@ -1,0 +1,52 @@
+%Relationships
+kwic :  input_output  circular_shift  alpha_sort  arch_style ;
+input_output : [1,2] {file console };
+circular_shift :  shift_data [compression] ;
+shift_data :  implicit  explicit ;
+compression :  shift_processing  each_line  all_lines [noise_words] ;
+alpha_sort :  order  case_sensitivity ;
+order :  descendant  ascendant ;
+case_sensitivity :  sensitive  insensitive ;
+arch_style :  shared_data  adt  implicit_invocation  pipe_and_filter ;
+
+%Attributes
+file.value: Integer[0 to 10],1,0;
+file.cost: Integer[0 to 10],4,0;
+console.value: Integer[0 to 10],4,0;
+console.cost: Integer[0 to 10],7,0;
+implicit.value: Integer[0 to 10],2,0;
+implicit.cost: Integer[0 to 10],6,0;
+explicit.value: Integer[0 to 10],1,0;
+explicit.cost: Integer[0 to 10],7,0;
+shift_processing.value: Integer[0 to 10],5,0;
+shift_processing.cost: Integer[0 to 10],6,0;
+each_line.value: Integer[0 to 10],2,0;
+each_line.cost: Integer[0 to 10],1,0;
+all_lines.value: Integer[0 to 10],6,0;
+all_lines.cost: Integer[0 to 10],1,0;
+noise_words.value: Integer[0 to 10],7,0;
+noise_words.cost: Integer[0 to 10],1,0;
+descendant.value: Integer[0 to 10],4,0;
+descendant.cost: Integer[0 to 10],4,0;
+ascendant.value: Integer[0 to 10],4,0;
+ascendant.cost: Integer[0 to 10],6,0;
+sensitive.value: Integer[0 to 10],0,0;
+sensitive.cost: Integer[0 to 10],7,0;
+insensitive.value: Integer[0 to 10],3,0;
+insensitive.cost: Integer[0 to 10],2,0;
+shared_data.value: Integer[0 to 10],2,0;
+shared_data.cost: Integer[0 to 10],8,0;
+adt.value: Integer[0 to 10],3,0;
+adt.cost: Integer[0 to 10],7,0;
+implicit_invocation.value: Integer[0 to 10],1,0;
+implicit_invocation.cost: Integer[0 to 10],8,0;
+pipe_and_filter.value: Integer[0 to 10],3,0;
+pipe_and_filter.cost: Integer[0 to 10],9,0;
+
+%Constraints
+compression REQUIRES explicit;
+pipe_and_filter REQUIRES all_lines;
+pipe_and_filter REQUIRES explicit;
+implicit_invocation.cost == 1 IMPLIES each_line.value < 2;
+insensitive.value > 7 IFF shift_processing.value <= 9;
+

@@ -1,0 +1,31 @@
+%Relationships
+Movies_App :  GUI  DB  Network [GPS] ;
+GUI :  Thin  Rich ;
+DB :  Local  Remote ;
+Remote :  Cache_Policy ;
+Network :  Wifi  Bluetooth ;
+GPS : [Built_In] ;
+
+%Attributes
+Thin.value: Integer[0 to 10],5,0;
+Thin.cost: Integer[0 to 10],3,0;
+Rich.value: Integer[0 to 10],7,0;
+Rich.cost: Integer[0 to 10],8,0;
+Local.value: Integer[0 to 10],6,0;
+Local.cost: Integer[0 to 10],0,0;
+Cache_Policy.value: Integer[0 to 10],5,0;
+Cache_Policy.cost: Integer[0 to 10],6,0;
+Wifi.value: Integer[0 to 10],3,0;
+Wifi.cost: Integer[0 to 10],8,0;
+Bluetooth.value: Integer[0 to 10],8,0;
+Bluetooth.cost: Integer[0 to 10],8,0;
+Built_In.value: Integer[0 to 10],7,0;
+Built_In.cost: Integer[0 to 10],3,0;
+
+%Constraints
+Cache_Policy.value >= 3 AND Built_In.cost != 9;
+Local.cost != 8 IMPLIES Cache_Policy.value != 8;
+Thin.value != 5 IFF Rich.value > 4;
+Thin.value != 4 AND Cache_Policy.value > 6;
+Wifi.cost >= 1 IMPLIES Cache_Policy.value != 8;
+

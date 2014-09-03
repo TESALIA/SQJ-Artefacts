@@ -1,0 +1,8 @@
+getwd()
+q()
+source("/Users/malawito/Documents/WorkspacesOLD/TESALIA/TESALIA/DataPlotRevisited.R")
+data.melted
+data
+colMeans(data$pruTime.mean)
+colMeans(data)
+colSums(data)

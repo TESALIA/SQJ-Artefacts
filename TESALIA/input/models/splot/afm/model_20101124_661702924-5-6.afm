@@ -1,0 +1,40 @@
+%Relationships
+_r :  _r_1  _r_2 [_r_4] ;
+_r_1 :  _r_1_5_6  _r_1_5_7  _r_1_5_8  _r_1_9_10  _r_1_9_11 ;
+_r_2 :  _r_2_12  _r_2_13 ;
+_r_4 : [1,4] {_r_4_14_15 _r_4_14_16 _r_4_14_17 _r_4_14_18 };
+
+%Attributes
+_r_1_5_6.value: Integer[0 to 10],7,0;
+_r_1_5_6.cost: Integer[0 to 10],4,0;
+_r_1_5_7.value: Integer[0 to 10],6,0;
+_r_1_5_7.cost: Integer[0 to 10],3,0;
+_r_1_5_8.value: Integer[0 to 10],6,0;
+_r_1_5_8.cost: Integer[0 to 10],2,0;
+_r_1_9_10.value: Integer[0 to 10],4,0;
+_r_1_9_10.cost: Integer[0 to 10],1,0;
+_r_1_9_11.value: Integer[0 to 10],4,0;
+_r_1_9_11.cost: Integer[0 to 10],7,0;
+_r_2_12.value: Integer[0 to 10],2,0;
+_r_2_12.cost: Integer[0 to 10],3,0;
+_r_2_13.value: Integer[0 to 10],8,0;
+_r_2_13.cost: Integer[0 to 10],1,0;
+_r_4_14_15.value: Integer[0 to 10],6,0;
+_r_4_14_15.cost: Integer[0 to 10],4,0;
+_r_4_14_16.value: Integer[0 to 10],2,0;
+_r_4_14_16.cost: Integer[0 to 10],9,0;
+_r_4_14_17.value: Integer[0 to 10],0,0;
+_r_4_14_17.cost: Integer[0 to 10],5,0;
+_r_4_14_18.value: Integer[0 to 10],7,0;
+_r_4_14_18.cost: Integer[0 to 10],2,0;
+
+%Constraints
+_r_1_9_11 REQUIRES _r_2_12;
+_r_1_9_11 EXCLUDES _r_4_14_15;
+_r_1_9_11 REQUIRES _r_4_14_17;
+_r_4_14_17.value < 9 IFF _r_4_14_16.value < 6;
+_r_1_5_6.cost > 1 IMPLIES _r_4_14_16.cost != 8;
+_r_1_9_11.value == 4 IMPLIES _r_4_14_16.cost <= 8;
+_r_1_9_11.value < 0 IMPLIES _r_4_14_15.cost < 2;
+_r_1_9_10.value != 5 OR _r_1_5_8.cost == 6;
+

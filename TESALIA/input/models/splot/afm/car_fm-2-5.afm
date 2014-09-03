@@ -1,0 +1,24 @@
+%Relationships
+Car : [Automated_Driving_Controller]  Sensors ;
+Automated_Driving_Controller :  Collision_Avoidance_Braking [parallel_parking] ;
+Collision_Avoidance_Braking :  Standard_Avoidance  enhanced_avoidance ;
+Sensors : [lateral_range_finder] [forward_range_finder] ;
+
+%Attributes
+Standard_Avoidance.value: Integer[0 to 10],3,0;
+Standard_Avoidance.cost: Integer[0 to 10],4,0;
+enhanced_avoidance.value: Integer[0 to 10],5,0;
+enhanced_avoidance.cost: Integer[0 to 10],2,0;
+parallel_parking.value: Integer[0 to 10],4,0;
+parallel_parking.cost: Integer[0 to 10],9,0;
+lateral_range_finder.value: Integer[0 to 10],4,0;
+lateral_range_finder.cost: Integer[0 to 10],7,0;
+forward_range_finder.value: Integer[0 to 10],0,0;
+forward_range_finder.cost: Integer[0 to 10],3,0;
+
+%Constraints
+enhanced_avoidance REQUIRES forward_range_finder;
+parallel_parking REQUIRES lateral_range_finder;
+forward_range_finder.value > 4 IMPLIES Standard_Avoidance.value < 6;
+enhanced_avoidance.cost == 1 OR lateral_range_finder.value >= 9;
+

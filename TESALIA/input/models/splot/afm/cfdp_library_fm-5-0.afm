@@ -1,0 +1,37 @@
+%Relationships
+CFDP_Library : [1,4] {send receive pus Reboot };
+send : [Send_Acknowledged_Mode] [send_fs_operations] ;
+receive : [Receive_Acknowledged_Mode] [receive_fs_operations] ;
+pus : [pus_rename] [pus_copy] ;
+Reboot : [Reboot_Entity] [reboot_pus] ;
+
+%Attributes
+Send_Acknowledged_Mode.value: Integer[0 to 10],7,0;
+Send_Acknowledged_Mode.cost: Integer[0 to 10],9,0;
+send_fs_operations.value: Integer[0 to 10],8,0;
+send_fs_operations.cost: Integer[0 to 10],5,0;
+Receive_Acknowledged_Mode.value: Integer[0 to 10],0,0;
+Receive_Acknowledged_Mode.cost: Integer[0 to 10],7,0;
+receive_fs_operations.value: Integer[0 to 10],8,0;
+receive_fs_operations.cost: Integer[0 to 10],9,0;
+pus_rename.value: Integer[0 to 10],0,0;
+pus_rename.cost: Integer[0 to 10],6,0;
+pus_copy.value: Integer[0 to 10],7,0;
+pus_copy.cost: Integer[0 to 10],4,0;
+Reboot_Entity.value: Integer[0 to 10],0,0;
+Reboot_Entity.cost: Integer[0 to 10],10,0;
+reboot_pus.value: Integer[0 to 10],3,0;
+reboot_pus.cost: Integer[0 to 10],2,0;
+
+%Constraints
+pus_copy REQUIRES send;
+pus_copy REQUIRES receive;
+pus_rename REQUIRES send_fs_operations;
+pus_rename REQUIRES receive_fs_operations;
+reboot_pus REQUIRES pus;
+receive_fs_operations.value >= 3 IFF Receive_Acknowledged_Mode.value == 8;
+Reboot_Entity.value >= 3 IMPLIES Send_Acknowledged_Mode.value <= 6;
+pus_rename.value < 6 IFF send_fs_operations.value > 9;
+Receive_Acknowledged_Mode.value <= 1 AND Reboot_Entity.cost <= 5;
+Receive_Acknowledged_Mode.cost <= 9 OR Send_Acknowledged_Mode.value > 9;
+

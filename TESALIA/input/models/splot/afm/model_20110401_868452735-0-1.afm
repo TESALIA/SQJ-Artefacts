@@ -1,0 +1,30 @@
+%Relationships
+_r :  _r_1  _r_2 [_r_4]  _r_12 [1,2] {_r_16_17 _r_16_18 };
+_r_1 :  _r_1_5_6  _r_1_5_7 ;
+_r_2 :  _r_2_8_9  _r_2_8_10  _r_2_8_11 ;
+_r_12 :  _r_12_13_14  _r_12_13_15 ;
+
+%Attributes
+_r_1_5_6.value: Integer[0 to 10],3,0;
+_r_1_5_6.cost: Integer[0 to 10],6,0;
+_r_1_5_7.value: Integer[0 to 10],6,0;
+_r_1_5_7.cost: Integer[0 to 10],7,0;
+_r_2_8_9.value: Integer[0 to 10],7,0;
+_r_2_8_9.cost: Integer[0 to 10],2,0;
+_r_2_8_10.value: Integer[0 to 10],3,0;
+_r_2_8_10.cost: Integer[0 to 10],3,0;
+_r_2_8_11.value: Integer[0 to 10],5,0;
+_r_2_8_11.cost: Integer[0 to 10],2,0;
+_r_4.value: Integer[0 to 10],2,0;
+_r_4.cost: Integer[0 to 10],8,0;
+_r_12_13_14.value: Integer[0 to 10],4,0;
+_r_12_13_14.cost: Integer[0 to 10],4,0;
+_r_12_13_15.value: Integer[0 to 10],6,0;
+_r_12_13_15.cost: Integer[0 to 10],3,0;
+_r_16_17.value: Integer[0 to 10],1,0;
+_r_16_17.cost: Integer[0 to 10],8,0;
+_r_16_18.value: Integer[0 to 10],3,0;
+_r_16_18.cost: Integer[0 to 10],1,0;
+
+%Constraints
+

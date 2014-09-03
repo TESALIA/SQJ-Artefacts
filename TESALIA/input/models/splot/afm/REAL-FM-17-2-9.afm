@@ -1,0 +1,55 @@
+%Relationships
+insurance_product :  insured_object  coverage  payment  conditions  premium  payee ;
+insured_object :  corporation  realty  movable_property  person ;
+coverage : [1,5] {illness life unemployment damage loss };
+payment :  service  ammount [own_risk] ;
+conditions :  acceptance  exception ;
+premium :  direct  periodical ;
+payee : [1,2] {_person payee_corporation };
+
+%Attributes
+corporation.value: Integer[0 to 10],5,0;
+corporation.cost: Integer[0 to 10],1,0;
+realty.value: Integer[0 to 10],5,0;
+realty.cost: Integer[0 to 10],2,0;
+movable_property.value: Integer[0 to 10],5,0;
+movable_property.cost: Integer[0 to 10],5,0;
+person.value: Integer[0 to 10],3,0;
+person.cost: Integer[0 to 10],4,0;
+illness.value: Integer[0 to 10],5,0;
+illness.cost: Integer[0 to 10],6,0;
+life.value: Integer[0 to 10],5,0;
+life.cost: Integer[0 to 10],3,0;
+unemployment.value: Integer[0 to 10],5,0;
+unemployment.cost: Integer[0 to 10],1,0;
+damage.value: Integer[0 to 10],4,0;
+damage.cost: Integer[0 to 10],2,0;
+loss.value: Integer[0 to 10],3,0;
+loss.cost: Integer[0 to 10],2,0;
+service.value: Integer[0 to 10],10,0;
+service.cost: Integer[0 to 10],9,0;
+ammount.value: Integer[0 to 10],4,0;
+ammount.cost: Integer[0 to 10],1,0;
+own_risk.value: Integer[0 to 10],2,0;
+own_risk.cost: Integer[0 to 10],7,0;
+acceptance.value: Integer[0 to 10],1,0;
+acceptance.cost: Integer[0 to 10],6,0;
+exception.value: Integer[0 to 10],6,0;
+exception.cost: Integer[0 to 10],4,0;
+direct.value: Integer[0 to 10],3,0;
+direct.cost: Integer[0 to 10],1,0;
+periodical.value: Integer[0 to 10],6,0;
+periodical.cost: Integer[0 to 10],4,0;
+_person.value: Integer[0 to 10],5,0;
+_person.cost: Integer[0 to 10],0,0;
+payee_corporation.value: Integer[0 to 10],1,0;
+payee_corporation.cost: Integer[0 to 10],2,0;
+
+%Constraints
+corporation EXCLUDES illness;
+person EXCLUDES damage;
+loss REQUIRES movable_property;
+corporation REQUIRES payee_corporation;
+_person.value == 3 OR damage.value == 7;
+person.value != 1 IMPLIES realty.cost > 0;
+

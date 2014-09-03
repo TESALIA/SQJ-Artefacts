@@ -1,0 +1,30 @@
+%Relationships
+_r : [_r_1]  _r_2  _r_14 [_r_15] ;
+_r_14 : [_r_14_16] [_r_14_17] [_r_14_18] ;
+_r_15 : [_r_15_19] [_r_15_20] ;
+
+%Attributes
+_r_1.value: Integer[0 to 10],0,0;
+_r_1.cost: Integer[0 to 10],5,0;
+_r_2.value: Integer[0 to 10],7,0;
+_r_2.cost: Integer[0 to 10],3,0;
+_r_14_16.value: Integer[0 to 10],0,0;
+_r_14_16.cost: Integer[0 to 10],2,0;
+_r_14_17.value: Integer[0 to 10],0,0;
+_r_14_17.cost: Integer[0 to 10],4,0;
+_r_14_18.value: Integer[0 to 10],3,0;
+_r_14_18.cost: Integer[0 to 10],10,0;
+_r_15_19.value: Integer[0 to 10],0,0;
+_r_15_19.cost: Integer[0 to 10],7,0;
+_r_15_20.value: Integer[0 to 10],9,0;
+_r_15_20.cost: Integer[0 to 10],6,0;
+
+%Constraints
+_r_14_18 EXCLUDES _r_15_19;
+_r_1 EXCLUDES _r_14_16;
+_r_2.value < 3 OR _r_14_16.value < 0;
+_r_1.value == 5 AND _r_14_18.cost < 0;
+_r_15_20.value <= 1 IMPLIES _r_14_18.cost == 2;
+_r_14_18.cost <= 9 IMPLIES _r_1.cost == 4;
+_r_1.value != 1 IMPLIES _r_14_17.value < 3;
+

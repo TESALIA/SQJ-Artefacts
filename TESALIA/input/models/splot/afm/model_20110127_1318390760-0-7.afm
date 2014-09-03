@@ -1,0 +1,27 @@
+%Relationships
+_r :  _r_1  _r_3  _r_4 [_r_5] ;
+_r_1 :  _r_1_6 [_r_1_7] ;
+_r_3 :  _r_3_9 ;
+_r_4 :  _r_4_11_12  _r_4_11_17  _r_4_11_18 ;
+_r_5 : [1,2] {_r_5_19_20 _r_5_19_21 };
+
+%Attributes
+_r_1_6.value: Integer[0 to 10],4,0;
+_r_1_6.cost: Integer[0 to 10],1,0;
+_r_1_7.value: Integer[0 to 10],9,0;
+_r_1_7.cost: Integer[0 to 10],9,0;
+_r_3_9.value: Integer[0 to 10],2,0;
+_r_3_9.cost: Integer[0 to 10],7,0;
+_r_4_11_12.value: Integer[0 to 10],9,0;
+_r_4_11_12.cost: Integer[0 to 10],3,0;
+_r_4_11_17.value: Integer[0 to 10],3,0;
+_r_4_11_17.cost: Integer[0 to 10],4,0;
+_r_4_11_18.value: Integer[0 to 10],8,0;
+_r_4_11_18.cost: Integer[0 to 10],7,0;
+_r_5_19_20.value: Integer[0 to 10],0,0;
+_r_5_19_20.cost: Integer[0 to 10],9,0;
+_r_5_19_21.value: Integer[0 to 10],8,0;
+_r_5_19_21.cost: Integer[0 to 10],2,0;
+
+%Constraints
+

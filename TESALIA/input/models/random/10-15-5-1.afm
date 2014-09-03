@@ -1,0 +1,28 @@
+%Relationships
+root :  F1  F2  F3 ;
+F1 : [F9] ;
+F2 : [F4] ;
+F3 : [F5]  F6 [1,2] {F7 F8 };
+
+%Attributes
+F9.value: Integer[0 to 10],7,0;
+F9.cost: Integer[0 to 10],9,0;
+F4.value: Integer[0 to 10],1,0;
+F4.cost: Integer[0 to 10],3,0;
+F5.value: Integer[0 to 10],3,0;
+F5.cost: Integer[0 to 10],4,0;
+F6.value: Integer[0 to 10],8,0;
+F6.cost: Integer[0 to 10],5,0;
+F7.value: Integer[0 to 10],2,0;
+F7.cost: Integer[0 to 10],1,0;
+F8.value: Integer[0 to 10],0,0;
+F8.cost: Integer[0 to 10],4,0;
+
+%Constraints
+F7 REQUIRES F8;
+F4.value <= 6 IFF F5.value <= 7;
+F8.value >= 8 IMPLIES F7.value < 7;
+F5.cost != 2 OR F8.value > 1;
+F7.value != 3 IFF F9.value >= 7;
+F9.cost < 5 IMPLIES F6.cost <= 3;
+

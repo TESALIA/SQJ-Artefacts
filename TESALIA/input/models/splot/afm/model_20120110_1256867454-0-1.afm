@@ -1,0 +1,25 @@
+%Relationships
+_r :  _r_1 [_r_4]  _r_5 [_r_6] ;
+_r_5 :  _r_5_15_16  _r_5_15_17  _r_5_15_18 ;
+_r_6 : [1,2] {_r_6_19_20 _r_6_19_21 };
+
+%Attributes
+_r_1.value: Integer[0 to 10],4,0;
+_r_1.cost: Integer[0 to 10],10,0;
+_r_4.value: Integer[0 to 10],7,0;
+_r_4.cost: Integer[0 to 10],6,0;
+_r_5_15_16.value: Integer[0 to 10],6,0;
+_r_5_15_16.cost: Integer[0 to 10],7,0;
+_r_5_15_17.value: Integer[0 to 10],3,0;
+_r_5_15_17.cost: Integer[0 to 10],6,0;
+_r_5_15_18.value: Integer[0 to 10],6,0;
+_r_5_15_18.cost: Integer[0 to 10],6,0;
+_r_6_19_20.value: Integer[0 to 10],6,0;
+_r_6_19_20.cost: Integer[0 to 10],1,0;
+_r_6_19_21.value: Integer[0 to 10],1,0;
+_r_6_19_21.cost: Integer[0 to 10],6,0;
+
+%Constraints
+_r_4 EXCLUDES _r_5_15_16;
+_r_5_15_18 REQUIRES _r_6_19_20;
+

@@ -1,0 +1,40 @@
+%Relationships
+monitor_engine_system :  engine_performance  fuel_consumption ;
+engine_performance :  temperatures  rpm  exhaust_level_temp ;
+temperatures : [colant]  oil  engine  transmission ;
+fuel_consumption :  measures  methods ;
+measures :  l_km  gallon_mile ;
+methods : [1,3] {distance type_of_driving drive };
+
+%Attributes
+colant.value: Integer[0 to 10],1,0;
+colant.cost: Integer[0 to 10],3,0;
+oil.value: Integer[0 to 10],1,0;
+oil.cost: Integer[0 to 10],3,0;
+engine.value: Integer[0 to 10],6,0;
+engine.cost: Integer[0 to 10],3,0;
+transmission.value: Integer[0 to 10],9,0;
+transmission.cost: Integer[0 to 10],4,0;
+rpm.value: Integer[0 to 10],3,0;
+rpm.cost: Integer[0 to 10],5,0;
+exhaust_level_temp.value: Integer[0 to 10],3,0;
+exhaust_level_temp.cost: Integer[0 to 10],8,0;
+l_km.value: Integer[0 to 10],2,0;
+l_km.cost: Integer[0 to 10],9,0;
+gallon_mile.value: Integer[0 to 10],0,0;
+gallon_mile.cost: Integer[0 to 10],8,0;
+distance.value: Integer[0 to 10],2,0;
+distance.cost: Integer[0 to 10],7,0;
+type_of_driving.value: Integer[0 to 10],5,0;
+type_of_driving.cost: Integer[0 to 10],4,0;
+drive.value: Integer[0 to 10],5,0;
+drive.cost: Integer[0 to 10],10,0;
+
+%Constraints
+drive REQUIRES rpm;
+drive.cost > 6 IFF type_of_driving.cost >= 5;
+transmission.cost >= 0 OR distance.value < 4;
+rpm.value != 2 OR engine.cost >= 8;
+distance.cost <= 8 IMPLIES colant.cost != 1;
+drive.value == 9 IMPLIES colant.cost < 1;
+

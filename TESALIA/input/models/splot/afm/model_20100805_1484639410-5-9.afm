@@ -1,0 +1,67 @@
+%Relationships
+_r :  _r_1  _r_2 ;
+_r_1 :  _r_1_3  _r_1_7  _r_1_8  _r_1_9  _r_1_10  _r_1_22  _r_1_27 ;
+_r_1_3 : [_r_1_3_4] [_r_1_3_5] ;
+_r_1_10 :  _r_1_10_12  _r_1_10_13 [_r_1_10_14] ;
+_r_1_22 : [_r_1_22_23] [_r_1_22_25] [_r_1_22_26] ;
+_r_1_27 : [_r_1_27_28] [_r_1_27_29] ;
+_r_1_27_29 : [_r_1_27_29_30] [_r_1_27_29_31] [_r_1_27_29_32] ;
+_r_2 :  _r_2_33  _r_2_34  _r_2_38 ;
+_r_2_34 : [_r_2_34_35] [_r_2_34_36] [_r_2_34_37] ;
+_r_2_38 :  _r_2_38_41 [_r_2_38_42] ;
+
+%Attributes
+_r_1_3_4.value: Integer[0 to 10],2,0;
+_r_1_3_4.cost: Integer[0 to 10],6,0;
+_r_1_3_5.value: Integer[0 to 10],2,0;
+_r_1_3_5.cost: Integer[0 to 10],10,0;
+_r_1_7.value: Integer[0 to 10],8,0;
+_r_1_7.cost: Integer[0 to 10],2,0;
+_r_1_8.value: Integer[0 to 10],7,0;
+_r_1_8.cost: Integer[0 to 10],9,0;
+_r_1_9.value: Integer[0 to 10],2,0;
+_r_1_9.cost: Integer[0 to 10],8,0;
+_r_1_10_12.value: Integer[0 to 10],1,0;
+_r_1_10_12.cost: Integer[0 to 10],2,0;
+_r_1_10_13.value: Integer[0 to 10],4,0;
+_r_1_10_13.cost: Integer[0 to 10],5,0;
+_r_1_10_14.value: Integer[0 to 10],3,0;
+_r_1_10_14.cost: Integer[0 to 10],3,0;
+_r_1_22_23.value: Integer[0 to 10],4,0;
+_r_1_22_23.cost: Integer[0 to 10],9,0;
+_r_1_22_25.value: Integer[0 to 10],2,0;
+_r_1_22_25.cost: Integer[0 to 10],1,0;
+_r_1_22_26.value: Integer[0 to 10],4,0;
+_r_1_22_26.cost: Integer[0 to 10],2,0;
+_r_1_27_28.value: Integer[0 to 10],8,0;
+_r_1_27_28.cost: Integer[0 to 10],1,0;
+_r_1_27_29_30.value: Integer[0 to 10],5,0;
+_r_1_27_29_30.cost: Integer[0 to 10],7,0;
+_r_1_27_29_31.value: Integer[0 to 10],0,0;
+_r_1_27_29_31.cost: Integer[0 to 10],3,0;
+_r_1_27_29_32.value: Integer[0 to 10],10,0;
+_r_1_27_29_32.cost: Integer[0 to 10],2,0;
+_r_2_33.value: Integer[0 to 10],2,0;
+_r_2_33.cost: Integer[0 to 10],10,0;
+_r_2_34_35.value: Integer[0 to 10],10,0;
+_r_2_34_35.cost: Integer[0 to 10],6,0;
+_r_2_34_36.value: Integer[0 to 10],2,0;
+_r_2_34_36.cost: Integer[0 to 10],2,0;
+_r_2_34_37.value: Integer[0 to 10],2,0;
+_r_2_34_37.cost: Integer[0 to 10],7,0;
+_r_2_38_41.value: Integer[0 to 10],4,0;
+_r_2_38_41.cost: Integer[0 to 10],9,0;
+_r_2_38_42.value: Integer[0 to 10],1,0;
+_r_2_38_42.cost: Integer[0 to 10],3,0;
+
+%Constraints
+_r_1_22_25 REQUIRES _r_1_27_29_31;
+_r_1_22_26 REQUIRES _r_1_27_29_32;
+_r_1_27_28 EXCLUDES _r_1_27_29;
+_r_1_22_23 REQUIRES _r_1_27_29_30;
+_r_1_10_13.value == 7 AND _r_1_22_23.value != 3;
+_r_1_10_14.cost > 2 AND _r_1_27_29_32.cost >= 9;
+_r_1_8.value <= 6 OR _r_1_27_29_30.cost == 0;
+_r_1_22_25.value > 2 IMPLIES _r_1_10_12.cost < 2;
+_r_1_27_29_31.value <= 1 IMPLIES _r_1_10_12.cost == 3;
+

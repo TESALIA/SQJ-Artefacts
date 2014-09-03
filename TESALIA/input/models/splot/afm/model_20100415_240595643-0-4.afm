@@ -1,0 +1,62 @@
+%Relationships
+_r :  _r_2  _r_6 [_r_33] [_r_41] ;
+_r_2 :  _r_2_3_4  _r_2_3_5 ;
+_r_6 :  _r_6_7 [_r_6_9]  _r_6_10  _r_6_13  _r_6_14 [_r_6_18] [_r_6_25] [_r_6_32] ;
+_r_6_10 : [_r_6_10_11] ;
+_r_6_14 : [1,2] {_r_6_14_15_16 _r_6_14_15_17 };
+_r_6_18 : [1,5] {_r_6_18_19_20 _r_6_18_19_21 _r_6_18_19_22 _r_6_18_19_23 _r_6_18_19_24 };
+_r_6_25 : [1,5] {_r_6_25_26_27 _r_6_25_26_28 _r_6_25_26_29 _r_6_25_26_30 _r_6_25_26_31 };
+_r_33 :  _r_33_34 [_r_33_39] [_r_33_40] ;
+
+%Attributes
+_r_2_3_4.value: Integer[0 to 10],5,0;
+_r_2_3_4.cost: Integer[0 to 10],2,0;
+_r_2_3_5.value: Integer[0 to 10],8,0;
+_r_2_3_5.cost: Integer[0 to 10],4,0;
+_r_6_7.value: Integer[0 to 10],7,0;
+_r_6_7.cost: Integer[0 to 10],9,0;
+_r_6_9.value: Integer[0 to 10],4,0;
+_r_6_9.cost: Integer[0 to 10],5,0;
+_r_6_10_11.value: Integer[0 to 10],1,0;
+_r_6_10_11.cost: Integer[0 to 10],4,0;
+_r_6_13.value: Integer[0 to 10],7,0;
+_r_6_13.cost: Integer[0 to 10],5,0;
+_r_6_14_15_16.value: Integer[0 to 10],5,0;
+_r_6_14_15_16.cost: Integer[0 to 10],0,0;
+_r_6_14_15_17.value: Integer[0 to 10],9,0;
+_r_6_14_15_17.cost: Integer[0 to 10],4,0;
+_r_6_18_19_20.value: Integer[0 to 10],3,0;
+_r_6_18_19_20.cost: Integer[0 to 10],9,0;
+_r_6_18_19_21.value: Integer[0 to 10],3,0;
+_r_6_18_19_21.cost: Integer[0 to 10],0,0;
+_r_6_18_19_22.value: Integer[0 to 10],5,0;
+_r_6_18_19_22.cost: Integer[0 to 10],5,0;
+_r_6_18_19_23.value: Integer[0 to 10],3,0;
+_r_6_18_19_23.cost: Integer[0 to 10],8,0;
+_r_6_18_19_24.value: Integer[0 to 10],4,0;
+_r_6_18_19_24.cost: Integer[0 to 10],4,0;
+_r_6_25_26_27.value: Integer[0 to 10],9,0;
+_r_6_25_26_27.cost: Integer[0 to 10],9,0;
+_r_6_25_26_28.value: Integer[0 to 10],4,0;
+_r_6_25_26_28.cost: Integer[0 to 10],7,0;
+_r_6_25_26_29.value: Integer[0 to 10],1,0;
+_r_6_25_26_29.cost: Integer[0 to 10],3,0;
+_r_6_25_26_30.value: Integer[0 to 10],10,0;
+_r_6_25_26_30.cost: Integer[0 to 10],9,0;
+_r_6_25_26_31.value: Integer[0 to 10],9,0;
+_r_6_25_26_31.cost: Integer[0 to 10],2,0;
+_r_6_32.value: Integer[0 to 10],5,0;
+_r_6_32.cost: Integer[0 to 10],4,0;
+_r_33_34.value: Integer[0 to 10],4,0;
+_r_33_34.cost: Integer[0 to 10],7,0;
+_r_33_39.value: Integer[0 to 10],3,0;
+_r_33_39.cost: Integer[0 to 10],3,0;
+_r_33_40.value: Integer[0 to 10],8,0;
+_r_33_40.cost: Integer[0 to 10],6,0;
+_r_41.value: Integer[0 to 10],1,0;
+_r_41.cost: Integer[0 to 10],7,0;
+
+%Constraints
+_r_6_9 REQUIRES _r_33_40;
+_r_2_3_4 REQUIRES _r_33;
+

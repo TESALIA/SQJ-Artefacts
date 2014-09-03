@@ -1,0 +1,60 @@
+%Relationships
+_r :  _r_1 [_r_10]  _r_13  _r_14  _r_15  _r_20 [_r_21] [_r_22] [_r_29] ;
+_r_1 :  _r_1_2_3  _r_1_2_4  _r_1_2_5 ;
+_r_1_2_5 :  _r_1_2_5_6_7  _r_1_2_5_6_8  _r_1_2_5_6_9 ;
+_r_10 : [_r_10_11] [_r_10_12] ;
+_r_15 :  _r_15_16_17  _r_15_16_18  _r_15_16_19 ;
+_r_22 :  _r_22_23_24  _r_22_23_25  _r_22_23_26 ;
+_r_29 :  _r_29_30_31  _r_29_30_32  _r_29_30_33 ;
+
+%Attributes
+_r_1_2_3.value: Integer[0 to 10],6,0;
+_r_1_2_3.cost: Integer[0 to 10],5,0;
+_r_1_2_4.value: Integer[0 to 10],2,0;
+_r_1_2_4.cost: Integer[0 to 10],1,0;
+_r_1_2_5_6_7.value: Integer[0 to 10],10,0;
+_r_1_2_5_6_7.cost: Integer[0 to 10],9,0;
+_r_1_2_5_6_8.value: Integer[0 to 10],0,0;
+_r_1_2_5_6_8.cost: Integer[0 to 10],0,0;
+_r_1_2_5_6_9.value: Integer[0 to 10],6,0;
+_r_1_2_5_6_9.cost: Integer[0 to 10],8,0;
+_r_10_11.value: Integer[0 to 10],5,0;
+_r_10_11.cost: Integer[0 to 10],9,0;
+_r_10_12.value: Integer[0 to 10],9,0;
+_r_10_12.cost: Integer[0 to 10],5,0;
+_r_13.value: Integer[0 to 10],4,0;
+_r_13.cost: Integer[0 to 10],5,0;
+_r_14.value: Integer[0 to 10],9,0;
+_r_14.cost: Integer[0 to 10],3,0;
+_r_15_16_17.value: Integer[0 to 10],5,0;
+_r_15_16_17.cost: Integer[0 to 10],1,0;
+_r_15_16_18.value: Integer[0 to 10],3,0;
+_r_15_16_18.cost: Integer[0 to 10],5,0;
+_r_15_16_19.value: Integer[0 to 10],2,0;
+_r_15_16_19.cost: Integer[0 to 10],10,0;
+_r_20.value: Integer[0 to 10],4,0;
+_r_20.cost: Integer[0 to 10],2,0;
+_r_21.value: Integer[0 to 10],0,0;
+_r_21.cost: Integer[0 to 10],6,0;
+_r_22_23_24.value: Integer[0 to 10],4,0;
+_r_22_23_24.cost: Integer[0 to 10],8,0;
+_r_22_23_25.value: Integer[0 to 10],6,0;
+_r_22_23_25.cost: Integer[0 to 10],7,0;
+_r_22_23_26.value: Integer[0 to 10],4,0;
+_r_22_23_26.cost: Integer[0 to 10],9,0;
+_r_29_30_31.value: Integer[0 to 10],1,0;
+_r_29_30_31.cost: Integer[0 to 10],3,0;
+_r_29_30_32.value: Integer[0 to 10],3,0;
+_r_29_30_32.cost: Integer[0 to 10],1,0;
+_r_29_30_33.value: Integer[0 to 10],9,0;
+_r_29_30_33.cost: Integer[0 to 10],4,0;
+
+%Constraints
+_r_10_11 REQUIRES _r_10_12;
+_r_1_2_5 REQUIRES _r_15_16_17;
+_r_10_12.value != 4 IMPLIES _r_10_11.cost > 0;
+_r_1_2_3.cost <= 7 IFF _r_22_23_26.cost > 7;
+_r_29_30_32.cost <= 9 IFF _r_21.cost == 7;
+_r_21.value > 2 IMPLIES _r_22_23_25.value == 3;
+_r_15_16_17.value <= 9 AND _r_1_2_3.value != 8;
+

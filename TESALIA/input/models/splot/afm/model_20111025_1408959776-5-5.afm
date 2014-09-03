@@ -1,0 +1,35 @@
+%Relationships
+_r :  _r_1 [1,6] {_r_8_9 _r_8_10 _r_8_11 _r_8_12 _r_8_13 _r_8_14 };
+_r_1 :  _r_1_2  _r_1_3  _r_1_4  _r_1_6  _r_1_7 ;
+
+%Attributes
+_r_1_2.value: Integer[0 to 10],7,0;
+_r_1_2.cost: Integer[0 to 10],0,0;
+_r_1_3.value: Integer[0 to 10],9,0;
+_r_1_3.cost: Integer[0 to 10],4,0;
+_r_1_4.value: Integer[0 to 10],10,0;
+_r_1_4.cost: Integer[0 to 10],3,0;
+_r_1_6.value: Integer[0 to 10],8,0;
+_r_1_6.cost: Integer[0 to 10],8,0;
+_r_1_7.value: Integer[0 to 10],9,0;
+_r_1_7.cost: Integer[0 to 10],10,0;
+_r_8_9.value: Integer[0 to 10],5,0;
+_r_8_9.cost: Integer[0 to 10],1,0;
+_r_8_10.value: Integer[0 to 10],8,0;
+_r_8_10.cost: Integer[0 to 10],8,0;
+_r_8_11.value: Integer[0 to 10],4,0;
+_r_8_11.cost: Integer[0 to 10],4,0;
+_r_8_12.value: Integer[0 to 10],5,0;
+_r_8_12.cost: Integer[0 to 10],3,0;
+_r_8_13.value: Integer[0 to 10],4,0;
+_r_8_13.cost: Integer[0 to 10],7,0;
+_r_8_14.value: Integer[0 to 10],9,0;
+_r_8_14.cost: Integer[0 to 10],10,0;
+
+%Constraints
+_r_8_9.value <= 9 OR _r_1_3.cost < 9;
+_r_8_10.cost > 6 IFF _r_8_9.cost > 3;
+_r_8_13.value > 0 IMPLIES _r_8_10.cost != 1;
+_r_8_10.value > 3 OR _r_8_14.value != 6;
+_r_8_13.cost > 1 IMPLIES _r_8_11.value <= 4;
+

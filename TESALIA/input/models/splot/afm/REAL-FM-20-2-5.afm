@@ -1,0 +1,78 @@
+%Relationships
+thread :  thread_instance ;
+thread_instance :  multiple  single ;
+multiple : [coroutine] ;
+coroutine : [dispatching]  location  size ;
+dispatching :  dispach_method [scheduling] ;
+dispach_method :  global_life ;
+scheduling : [bundle_schedule] [idle_control] [query_schedule]  thread_schedule ;
+bundle_schedule : [bundle_preemption]  bundle_strategy ;
+bundle_strategy : [bundle_strategy_replugging]  bundle_fcfs  bundle_lcfs ;
+idle_control :  idle_guard  idle_panic  idle_user ;
+thread_schedule : [thread_preemption]  thread_strategy ;
+thread_preemption : [non_preemptable_threads] [scheduler_lockable] ;
+thread_strategy :  priority  thread_fcfs  thread_lcfs [thread_strategy_replugging] ;
+priority : [schedule_same_priority]  priority_behaviour  priority_count ;
+priority_behaviour :  priority_cooperative  priority_preemptive ;
+priority_count :  priority_16  priority_32  priority_8 ;
+location :  integrated  separated ;
+size : [float_set] [volatile_set]  mi_nimal_set ;
+
+%Attributes
+global_life.value: Integer[0 to 10],6,0;
+global_life.cost: Integer[0 to 10],1,0;
+bundle_preemption.value: Integer[0 to 10],5,0;
+bundle_preemption.cost: Integer[0 to 10],5,0;
+bundle_strategy_replugging.value: Integer[0 to 10],0,0;
+bundle_strategy_replugging.cost: Integer[0 to 10],4,0;
+bundle_fcfs.value: Integer[0 to 10],2,0;
+bundle_fcfs.cost: Integer[0 to 10],4,0;
+bundle_lcfs.value: Integer[0 to 10],9,0;
+bundle_lcfs.cost: Integer[0 to 10],4,0;
+idle_guard.value: Integer[0 to 10],2,0;
+idle_guard.cost: Integer[0 to 10],6,0;
+idle_panic.value: Integer[0 to 10],2,0;
+idle_panic.cost: Integer[0 to 10],10,0;
+idle_user.value: Integer[0 to 10],4,0;
+idle_user.cost: Integer[0 to 10],4,0;
+query_schedule.value: Integer[0 to 10],1,0;
+query_schedule.cost: Integer[0 to 10],9,0;
+non_preemptable_threads.value: Integer[0 to 10],2,0;
+non_preemptable_threads.cost: Integer[0 to 10],8,0;
+scheduler_lockable.value: Integer[0 to 10],2,0;
+scheduler_lockable.cost: Integer[0 to 10],8,0;
+schedule_same_priority.value: Integer[0 to 10],1,0;
+schedule_same_priority.cost: Integer[0 to 10],0,0;
+priority_cooperative.value: Integer[0 to 10],10,0;
+priority_cooperative.cost: Integer[0 to 10],7,0;
+priority_preemptive.value: Integer[0 to 10],6,0;
+priority_preemptive.cost: Integer[0 to 10],9,0;
+priority_16.value: Integer[0 to 10],9,0;
+priority_16.cost: Integer[0 to 10],7,0;
+priority_32.value: Integer[0 to 10],8,0;
+priority_32.cost: Integer[0 to 10],1,0;
+priority_8.value: Integer[0 to 10],4,0;
+priority_8.cost: Integer[0 to 10],5,0;
+thread_fcfs.value: Integer[0 to 10],1,0;
+thread_fcfs.cost: Integer[0 to 10],3,0;
+thread_lcfs.value: Integer[0 to 10],3,0;
+thread_lcfs.cost: Integer[0 to 10],1,0;
+thread_strategy_replugging.value: Integer[0 to 10],4,0;
+thread_strategy_replugging.cost: Integer[0 to 10],0,0;
+integrated.value: Integer[0 to 10],2,0;
+integrated.cost: Integer[0 to 10],6,0;
+separated.value: Integer[0 to 10],5,0;
+separated.cost: Integer[0 to 10],2,0;
+float_set.value: Integer[0 to 10],1,0;
+float_set.cost: Integer[0 to 10],4,0;
+volatile_set.value: Integer[0 to 10],6,0;
+volatile_set.cost: Integer[0 to 10],3,0;
+mi_nimal_set.value: Integer[0 to 10],7,0;
+mi_nimal_set.cost: Integer[0 to 10],9,0;
+single.value: Integer[0 to 10],0,0;
+single.cost: Integer[0 to 10],3,0;
+
+%Constraints
+idle_panic.value >= 8 IMPLIES priority_16.cost == 3;
+priority_8.value != 7 IMPLIES priority_preemptive.value >= 3;
+

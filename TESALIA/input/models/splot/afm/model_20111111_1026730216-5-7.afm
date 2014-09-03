@@ -1,0 +1,73 @@
+%Relationships
+_r :  _r_1  _r_3  _r_6  _r_11  _r_15 [_r_16] [_r_17] [_r_23]  _r_27  _r_33  _r_39  _r_40 ;
+_r_1 :  _r_1_2 ;
+_r_3 :  _r_3_4  _r_3_5 ;
+_r_6 :  _r_6_7_8  _r_6_7_9  _r_6_7_10 ;
+_r_11 :  _r_11_12_13  _r_11_12_14 ;
+_r_17 :  _r_17_18_19  _r_17_18_20 ;
+_r_17_18_19 :  _r_17_18_19_21 ;
+_r_17_18_20 :  _r_17_18_20_22 ;
+_r_23 :  _r_23_24_25  _r_23_24_26 ;
+_r_27 :  _r_27_28_29  _r_27_28_30  _r_27_28_31  _r_27_28_32 ;
+_r_33 :  _r_33_34  _r_33_36  _r_33_37  _r_33_38 ;
+_r_40 : [1,2] {_r_40_41_42 _r_40_41_43 };
+
+%Attributes
+_r_1_2.value: Integer[0 to 10],9,0;
+_r_1_2.cost: Integer[0 to 10],8,0;
+_r_3_4.value: Integer[0 to 10],4,0;
+_r_3_4.cost: Integer[0 to 10],5,0;
+_r_3_5.value: Integer[0 to 10],1,0;
+_r_3_5.cost: Integer[0 to 10],3,0;
+_r_6_7_8.value: Integer[0 to 10],5,0;
+_r_6_7_8.cost: Integer[0 to 10],2,0;
+_r_6_7_9.value: Integer[0 to 10],8,0;
+_r_6_7_9.cost: Integer[0 to 10],7,0;
+_r_6_7_10.value: Integer[0 to 10],4,0;
+_r_6_7_10.cost: Integer[0 to 10],1,0;
+_r_11_12_13.value: Integer[0 to 10],4,0;
+_r_11_12_13.cost: Integer[0 to 10],5,0;
+_r_11_12_14.value: Integer[0 to 10],7,0;
+_r_11_12_14.cost: Integer[0 to 10],1,0;
+_r_15.value: Integer[0 to 10],1,0;
+_r_15.cost: Integer[0 to 10],9,0;
+_r_16.value: Integer[0 to 10],9,0;
+_r_16.cost: Integer[0 to 10],7,0;
+_r_17_18_19_21.value: Integer[0 to 10],4,0;
+_r_17_18_19_21.cost: Integer[0 to 10],9,0;
+_r_17_18_20_22.value: Integer[0 to 10],1,0;
+_r_17_18_20_22.cost: Integer[0 to 10],10,0;
+_r_23_24_25.value: Integer[0 to 10],9,0;
+_r_23_24_25.cost: Integer[0 to 10],10,0;
+_r_23_24_26.value: Integer[0 to 10],4,0;
+_r_23_24_26.cost: Integer[0 to 10],8,0;
+_r_27_28_29.value: Integer[0 to 10],4,0;
+_r_27_28_29.cost: Integer[0 to 10],4,0;
+_r_27_28_30.value: Integer[0 to 10],9,0;
+_r_27_28_30.cost: Integer[0 to 10],4,0;
+_r_27_28_31.value: Integer[0 to 10],7,0;
+_r_27_28_31.cost: Integer[0 to 10],5,0;
+_r_27_28_32.value: Integer[0 to 10],1,0;
+_r_27_28_32.cost: Integer[0 to 10],3,0;
+_r_33_34.value: Integer[0 to 10],7,0;
+_r_33_34.cost: Integer[0 to 10],2,0;
+_r_33_36.value: Integer[0 to 10],3,0;
+_r_33_36.cost: Integer[0 to 10],0,0;
+_r_33_37.value: Integer[0 to 10],1,0;
+_r_33_37.cost: Integer[0 to 10],3,0;
+_r_33_38.value: Integer[0 to 10],5,0;
+_r_33_38.cost: Integer[0 to 10],9,0;
+_r_39.value: Integer[0 to 10],2,0;
+_r_39.cost: Integer[0 to 10],1,0;
+_r_40_41_42.value: Integer[0 to 10],8,0;
+_r_40_41_42.cost: Integer[0 to 10],3,0;
+_r_40_41_43.value: Integer[0 to 10],1,0;
+_r_40_41_43.cost: Integer[0 to 10],2,0;
+
+%Constraints
+_r_33_36.cost > 8 IFF _r_27_28_31.value > 0;
+_r_15.value != 7 IFF _r_6_7_9.cost == 5;
+_r_27_28_29.cost <= 7 IMPLIES _r_27_28_32.value == 4;
+_r_40_41_43.cost <= 6 IFF _r_11_12_14.cost < 4;
+_r_3_5.cost > 0 OR _r_33_38.cost <= 7;
+

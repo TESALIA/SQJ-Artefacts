@@ -1,0 +1,33 @@
+%Relationships
+Aircraft :  Wing [Engine]  Materials ;
+Wing : [1,3] {High Shoulder Low };
+Engine :  Jet  Piston ;
+Materials : [1,4] {Metal Wood Cloth Plastic };
+
+%Attributes
+High.value: Integer[0 to 10],2,0;
+High.cost: Integer[0 to 10],5,0;
+Shoulder.value: Integer[0 to 10],6,0;
+Shoulder.cost: Integer[0 to 10],2,0;
+Low.value: Integer[0 to 10],9,0;
+Low.cost: Integer[0 to 10],8,0;
+Jet.value: Integer[0 to 10],3,0;
+Jet.cost: Integer[0 to 10],8,0;
+Piston.value: Integer[0 to 10],5,0;
+Piston.cost: Integer[0 to 10],3,0;
+Metal.value: Integer[0 to 10],8,0;
+Metal.cost: Integer[0 to 10],1,0;
+Wood.value: Integer[0 to 10],8,0;
+Wood.cost: Integer[0 to 10],4,0;
+Cloth.value: Integer[0 to 10],1,0;
+Cloth.cost: Integer[0 to 10],7,0;
+Plastic.value: Integer[0 to 10],10,0;
+Plastic.cost: Integer[0 to 10],3,0;
+
+%Constraints
+High.value == 2 IMPLIES Shoulder.cost > 1;
+Shoulder.cost <= 4 IMPLIES Low.value == 4;
+Metal.value >= 2 IMPLIES Wood.cost > 3;
+High.cost == 7 OR Low.cost > 1;
+Shoulder.value <= 3 IFF Metal.cost == 2;
+

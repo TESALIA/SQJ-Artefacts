@@ -1,0 +1,64 @@
+%Relationships
+root : [F1] [F2] [F3]  F4 [1,2] {F5 F6 } F7  F8  F9 ;
+F1 : [F19] [F20] [F21]  F22  F23 ;
+F22 :  F24  F25 ;
+F3 : [1,2] {F16 F17 };
+F5 : [F10] [F11] ;
+F10 :  F12 [F13]  F14  F15 ;
+F12 : [F26]  F27  F28  F29 ;
+F6 : [F18] ;
+
+%Attributes
+F19.value: Integer[0 to 10],9,0;
+F19.cost: Integer[0 to 10],6,0;
+F20.value: Integer[0 to 10],4,0;
+F20.cost: Integer[0 to 10],4,0;
+F21.value: Integer[0 to 10],3,0;
+F21.cost: Integer[0 to 10],3,0;
+F24.value: Integer[0 to 10],3,0;
+F24.cost: Integer[0 to 10],10,0;
+F25.value: Integer[0 to 10],10,0;
+F25.cost: Integer[0 to 10],8,0;
+F23.value: Integer[0 to 10],3,0;
+F23.cost: Integer[0 to 10],9,0;
+F2.value: Integer[0 to 10],2,0;
+F2.cost: Integer[0 to 10],6,0;
+F16.value: Integer[0 to 10],5,0;
+F16.cost: Integer[0 to 10],6,0;
+F17.value: Integer[0 to 10],5,0;
+F17.cost: Integer[0 to 10],4,0;
+F4.value: Integer[0 to 10],4,0;
+F4.cost: Integer[0 to 10],7,0;
+F26.value: Integer[0 to 10],2,0;
+F26.cost: Integer[0 to 10],9,0;
+F27.value: Integer[0 to 10],10,0;
+F27.cost: Integer[0 to 10],9,0;
+F28.value: Integer[0 to 10],5,0;
+F28.cost: Integer[0 to 10],2,0;
+F29.value: Integer[0 to 10],2,0;
+F29.cost: Integer[0 to 10],6,0;
+F13.value: Integer[0 to 10],10,0;
+F13.cost: Integer[0 to 10],9,0;
+F14.value: Integer[0 to 10],2,0;
+F14.cost: Integer[0 to 10],2,0;
+F15.value: Integer[0 to 10],9,0;
+F15.cost: Integer[0 to 10],8,0;
+F11.value: Integer[0 to 10],7,0;
+F11.cost: Integer[0 to 10],6,0;
+F18.value: Integer[0 to 10],2,0;
+F18.cost: Integer[0 to 10],9,0;
+F7.value: Integer[0 to 10],5,0;
+F7.cost: Integer[0 to 10],1,0;
+F8.value: Integer[0 to 10],5,0;
+F8.cost: Integer[0 to 10],5,0;
+F9.value: Integer[0 to 10],8,0;
+F9.cost: Integer[0 to 10],7,0;
+
+%Constraints
+F13 REQUIRES F15;
+F25.value == 5 OR F21.cost != 0;
+F17.value != 5 AND F21.cost < 7;
+F7.cost < 1 IFF F24.value == 5;
+F18.value <= 1 IMPLIES F8.value >= 1;
+F20.value > 0 IMPLIES F2.value >= 7;
+
